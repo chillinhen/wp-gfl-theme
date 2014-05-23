@@ -1,0 +1,13 @@
+@charset "UTF-8"; 
+/** 
+* Theme Name: wpGFL-theme 
+* Theme URI: http://wp.gewaltfreilernen.de
+* Description: Child theme for Bootstrapmaster for WordPress. 
+* Author: Claudia Hillen 
+* Author URI: http://www.chilliscope.de 
+* Template: wordpress-bootstrap-master
+* Version: 0.1.0 
+
+*/ 
+
+@import url('../wordpress-bootstrap-master/style.css');
