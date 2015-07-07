@@ -56,21 +56,23 @@ function wpGFL_theme_setup() {
 	}
     }
     add_action('wp_enqueue_scripts', 'my_styles');
-    // additional menus
-    if (!function_exists('my_menus')) :
+    
 
-	// Register wp_nav_menus
-	function my_menus() {
-	    register_nav_menus(
-		    array(
-			'meta-menu' => 'Meta Menu',
-			//'breadcrumb' => 'Breadcrumb'
-	    ));
-	}
+function gfl_bootstrap_main_nav() {
+	// display the wp3 menu if available
+    wp_nav_menu( 
+    	array( 
+    		'menu' => 'main_nav', /* menu name */
+    		'menu_class' => 'nav navbar-nav',
+    		'theme_location' => 'main_nav', /* where in the theme it's assigned */
+    		'container' => 'false', /* container class */
+    		'fallback_cb' => 'wp_bootstrap_main_nav_fallback', /* menu fallback */
+    		// 'depth' => '2',  suppress lower levels for now 
+    		'walker' => new Bootstrap_walker()
+    	)
+    );
+}
 
-	add_action('init', 'my_menus');
-
-    endif;
 
     function wpGLF_meta_nav() {
 	wp_nav_menu(
@@ -82,6 +84,22 @@ function wpGFL_theme_setup() {
 		)
 	);
     }
+        // additional menus
+    if (!function_exists('my_menus')) :
+
+	// Register wp_nav_menus
+	function my_menus() {
+	    register_nav_menus(
+		    array(
+			'meta-menu' => 'Meta Menu',
+			//'breadcrumb' => 'Breadcrumb'
+                        //'main_nav' => 'menu'
+	    ));
+	}
+
+	add_action('init', 'my_menus');
+
+    endif;
     
 
     //remove current sidebars

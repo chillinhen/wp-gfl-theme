@@ -44,6 +44,29 @@ jQuery(document).ready(function($) {
     $('ul#menu-hauptmenu').removeClass('navbar-nav').addClass('nav-tabs').addClass('nav-justified');
     $('.current_page_item').parent('ul').parent('li').addClass('active');
     $('li.active').parent('ul').parent('li').addClass('active').parent('ul').parent('li').addClass('active');
+    
+    // show position of dropdown
+    //var menuWidth = $('ul#menu-hauptmenu').width();
+    //alert(menuWidth);
+    //$('ul#menu-hauptmenu').children('li').children('ul.dropdown-menu').css('width',menuWidth);;
+    
+//    var activeElement = $( "li.active" );
+//    var hoverElement = $('ul#menu-hauptmenu').children('li').hover();
+//    var position = activeElement.position();
+//    var hoverPosition = hoverElement.position();
+//    alert('left:'+position.left);
+//    activeElement.children('ul.dropdown-menu')
+//            .css(
+//                    'margin-left', -position.left,
+//                    'width', menuWidth
+//                    );
+//    hoverElement.children('ul.dropdown-menu')
+//            .css(
+//                    'margin-left', -position.left,
+//                    'width', menuWidth
+//                    );
+    
+    
     //show special navs
     $('a[title="call-to-action"]').each(function(){
         $(this).addClass('call-to-action');

@@ -397,7 +397,7 @@ header {
     a, .caret{color:white !important;}
 
     > li {
-        border-bottom:1px solid white;
+        /*border-bottom:1px solid white;*/
 
         > a:hover, > a:focus{
             @extend .dropdown-hover;
@@ -415,9 +415,47 @@ header {
     }
 }
 ul.nav .dropdown > .dropdown-menu .caret{
-    @include caret-right-style (6px);
+    @include caret-down-style (6px);
 }
-
+/*** Mega Menu ***/
+ul#menu-hauptmenu{
+    li{
+       position: static;
+    }
+    > li{
+        &.active,&:hover{
+            > .dropdown-menu{
+                > li {
+                    display:table-cell;
+                    min-width: 1%;
+                }
+                
+                .dropdown-menu{
+                    width:100%;
+                    background: red;
+                    left:0;
+                    display:-webkit-flex;
+                    display:flex; 
+                    flex-direction:row;
+                }
+            }
+        }
+    }
+/*    .dropdown-menu{
+        display:-webkit-flex;
+        display:flex;
+    }
+    > li {
+        > .dropdown-menu{
+            flex-direction:row;
+            > li{
+                .dropdown-menu{
+                    flex-direction:column;
+                }
+            }
+        }
+    }*/
+}
 /*** meta menu ***/
 
 #menu-meta-menu{
