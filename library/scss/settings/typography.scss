@@ -1,0 +1,57 @@
+@import "colors.scss";
+// ------------------------------------
+// Font attributes.
+// ------------------------------------
+
+$font-size: 15px;
+$font-line: 1.45;
+$font-indent: 2em;
+
+
+// ------------------------------------
+// Heading attributes.
+// ------------------------------------
+
+$font-size-h1: $font-size * 1.46;
+$font-size-h2: $font-size * 1.2;
+$font-size-h3: $font-size * 1.06;
+$font-size-h4: $font-size * 1;
+$font-size-h5: $font-size * 11;
+$font-size-h6: $font-size * 1;
+
+
+// ------------------------------------
+// Custom font families.
+// ------------------------------------
+
+$font-base:'PT Sans', Helvetica, Arial, sans-serif;
+$font-headings:'Lato', Helvetica, Arial, sans-serif;
+
+//----------------------------
+// Headline Styles 
+//----------------------------
+/* Headlines */
+@mixin headline-style($font-family,$col,$line,$weight){
+    font-family: $font-family;
+    color:$col;
+    line-height: $line;
+    font-weight: $weight;
+}
+//----------------------------
+// Other Styles 
+//----------------------------
+p, .lead{
+    font-size:$font-size;
+    line-height: $font-line;
+    /*    font-size:0.9375rem;*/
+    font-weight: normal;
+}
+.kursiv{
+    font-style:italic;
+    font-size:$font-size * 0.75;
+    line-height:$font-size * 1.25;
+}
+/* Kleinerer Text */
+.s {
+    font-size: 0.9em;
+}

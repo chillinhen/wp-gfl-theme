@@ -1,0 +1,53 @@
+/* Headlines */
+/* line 43, ../../scss/settings/typography.scss */
+p, .lead {
+  font-size: 15px;
+  line-height: 1;
+  /*    font-size:0.9375rem;*/
+  font-weight: normal;
+}
+
+/* line 49, ../../scss/settings/typography.scss */
+.kursiv {
+  font-style: italic;
+  font-size: 0px;
+  line-height: 15px;
+}
+
+/* Kleinerer Text */
+/* line 55, ../../scss/settings/typography.scss */
+.s {
+  font-size: 0.9em;
+}
+
+/*** resets ***/
+/* line 5, ../../scss/settings/extensions.scss */
+.reset-border {
+  border: 0;
+  border-color: transparent;
+}
+
+/* line 9, ../../scss/settings/extensions.scss */
+.foo-bar {
+  border-left: 1px solid red;
+  border-right: 1px solid red;
+}
+
+/**Sticky Footer***/
+/**** carousel****/
+/***box attributes***/
+/*** Shadow ***/
+/* line 30, ../../scss/settings/extensions.scss */
+.shadow {
+  -webkit-box-shadow: 1px 1px 6px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 1px 6px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* line 34, ../../scss/settings/extensions.scss */
+.inset {
+  text-shadow: -1px -1px 0px #202020, 1px 1px 0px white;
+}
+
+/**** caret ****/
+/**** social media icons ****/
+/*** Fontawesome Icons ***/

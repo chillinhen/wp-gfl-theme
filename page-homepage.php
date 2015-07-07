@@ -1,4 +1,3 @@
-
 <?php
 /*
   Template Name: Homepage
@@ -6,17 +5,14 @@
 ?>
 
 <?php get_header(); ?>
-
-<section role="content">
-    <div class="container">
-	<div id="content" class="clearfix row">
-
-	    <?php
+<div class="container">
+    <div id="content" class="clearfix row">
+	<?php
 	    $teaser_intro = get_field('teaser_intro');
 
 	    if ($teaser_intro):
 		?>
-    	    <div id="main" class="col-md-4" role="intro">
+    	    <div class="col-md-4" role="intro">
 		    <?php
 		    // override $post
 		    $post = $teaser_intro;
@@ -71,12 +67,8 @@
 		    ?>
     	    </div>
 	    <?php endif; ?>
-
-	</div><!--end content -->
-    </div>
-</section>
-
-<!-- Unterseiten Teaser -->
+    </div><!-- end content -->
+    <!-- Unterseiten Teaser -->
 <?php
 //$parent = $post->ID;
 $filter = array(
@@ -94,7 +86,7 @@ $panelLoop = new WP_Query($filter);
             <div class="row clearfix panels">
 		<?php while ($panelLoop->have_posts()) : $panelLoop->the_post(); ?> 
 		    <div class="col-md-4">
-			<?php get_template_part('partials/article', get_post_format()); ?>
+			<?php get_template_part('partials/panel', get_post_format()); ?>
 		    </div>
 		    <?php
 		endwhile;
@@ -105,19 +97,12 @@ $panelLoop = new WP_Query($filter);
     </section>  
 <?php endif; ?>
 <!-- end Unterseiten Teaser -->
-
 <!-- optional Bildergalerien -->
 <section role="gallery" class="row clearfix">
     <div class="container">
 	<?php get_template_part('partials/gallery','article'); ?>
     </div>
 </section>
-<!-- end Bildergalerien -->
-
-<!-- optional weitere Artikel-Teaser -->
-<section role="panels" class="row clearfix">
-    <div class="container">
-	<?php get_template_part('partials/bottom', 'articles', get_post_format()); ?>
-    </div>
+</div>
 </section>
 <?php get_footer(); ?>

@@ -1,7 +1,13 @@
+<?php 
 
+global $more;
+$more = 0;
+
+?>
 <article id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?> role="article">
 
     <header>
+	<?php the_post_thumbnail('wpbs-featured'); ?>
 
 	<hgroup class="teaser-header">
 	    <h3 class="single-title" itemprop="headline">
@@ -10,19 +16,11 @@
 		</a>
 	    </h3>
 	</hgroup>
-
-
-
-    </header> <!-- end article header -->
-
-    <section class="post_content clearfix" itemprop="articleBody">
-
-	<?php the_content(); ?>
-
-    </section> <!-- end article section -->
-
+    </header>
+    <section>
+	<?php the_content('... mehr Infos'); ?>
+    </section>
     <footer>
 	    <?php get_template_part('partials/edit', 'info'); ?>
     </footer>
-
-</article> <!-- end article -->
+</article>

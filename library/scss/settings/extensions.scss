@@ -1,0 +1,65 @@
+@import "colors.scss";
+@import "typography.scss";
+
+/*** resets ***/
+.reset-border {
+    border: 0;
+    border-color: transparent;
+}
+.foo-bar{
+     border-left:1px solid $foo;
+    border-right:1px solid $foo;
+}
+@mixin blockquote() {
+    margin:0  $font-size * 0.6;
+    padding:0 $font-size * 0.6;
+    quotes:"\201C""\201D""\2018""\2019";
+}
+/**Sticky Footer***/
+$footer-height:260px;
+
+/**** carousel****/
+$carouselHeight:350px;
+
+/***box attributes***/
+@mixin border-radius($rd){
+    -webkit-border-radius: $rd;
+    border-radius: $rd;
+}
+/*** Shadow ***/
+.shadow {
+    -webkit-box-shadow: 1px 1px 6px 2px rgba(0,0,0,.2);
+    box-shadow: 1px 1px 6px 2px rgba(0,0,0,.2);
+}
+.inset {text-shadow: -1px -1px 0px $color-shadow, 1px 1px 0px lighten($color-shadow,100%);}
+
+/**** caret ****/
+@mixin caret-right-style ($size) {
+    border-bottom: $size solid transparent;
+    border-left: $size solid currentColor;
+    border-top: $size solid transparent;
+    border-width: $size 0 $size $size; 
+}
+@mixin caret-down-style ($size) {
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    border-top-color: currentColor;
+    border-width: $size; 
+    border-style: solid;
+}
+
+/**** social media icons ****/
+@mixin social-media-style($size){
+    height: $size !important;
+    width: $size !important;
+}
+/*** Fontawesome Icons ***/
+@mixin icon-style ($cnt, $pd-ri, $op, $mg-le, $size) {
+    font-family: 'FontAwesome';
+    content: $cnt;
+    padding-right: $pd-ri;
+    opacity: $op;
+    margin-left:$mg-le;
+    font-size:$size;
+}

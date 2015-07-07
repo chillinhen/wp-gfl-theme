@@ -1,0 +1,73 @@
+
+/****** Carousel ***/
+.carousel-inner,
+.carousel-inner .item{
+    height: 400px;
+    overflow: hidden;
+    position: relative;
+}
+.carousel-caption {
+    top:25%;
+    bottom:auto;
+    background: rgba(0,55,109,.5);
+    width: 60%;
+    left: auto;
+    right: 0;
+    padding:.5em 0;
+}
+.carousel-caption * {
+    font-family: 'PT Sans', Helvetica, Arial, Verdana, sans-serif;
+    color:#fff;
+    font-style:italic;
+    font-weight: 400;
+    float: left;
+    margin:0 1em;
+    display: inline-block;
+    font-size: larger;
+    text-shadow:none;
+    text-align: right;
+}
+.carousel-caption blockquote {
+    border:0;
+}
+.carousel-caption blockquote h2 {
+    float: right;
+    font-size: smaller;
+}
+.carousel-indicators{
+    top:auto;
+    bottom:0;
+
+}
+.carousel-indicators li {
+    border-width:0;
+    background-color: rgba(97,150,202,.5);
+    overflow: hidden;
+}
+.carousel-indicators li.active {
+    background: #6196CA;
+}
+.carousel-control {
+    bottom: auto;
+    left: 0;
+    top:10%;
+    opacity: 1;
+    color:#fff !important;
+    position: absolute;
+    text-align: center;
+    text-shadow:none;
+    z-index: 200000;
+    background-image: none !important;
+    width: 60px;
+}
+.carousel-control:hover {
+    opacity: .5;
+}
+.carousel-control.left {
+    left:1em;
+}
+.carousel-control.right {
+    right:1em;
+}
+
+

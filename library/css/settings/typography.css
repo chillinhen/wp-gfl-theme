@@ -1,0 +1,21 @@
+/* Headlines */
+/* line 43, ../../scss/settings/typography.scss */
+p, .lead {
+  font-size: 15px;
+  line-height: 1;
+  /*    font-size:0.9375rem;*/
+  font-weight: normal;
+}
+
+/* line 49, ../../scss/settings/typography.scss */
+.kursiv {
+  font-style: italic;
+  font-size: 0px;
+  line-height: 15px;
+}
+
+/* Kleinerer Text */
+/* line 55, ../../scss/settings/typography.scss */
+.s {
+  font-size: 0.9em;
+}

@@ -1,0 +1,66 @@
+.social_share_privacy {
+    li {
+/*        height: 40px !important;
+        width: 40px !important;
+        margin: 0 20px 0 0!important;
+        overflow: visible !important;
+        padding: 0;
+        .twoclick-button-container{
+            display: block;
+            height: 100%;
+            width:100% !important;
+            border:0;
+        }*/
+/*        .dummy_btn {
+            float: none;
+            margin-left: 0;
+            &.fb_recommend_btn{
+                background-position: 0 0;
+            }
+            &.twitter_btn {
+                background-position: -58px 0;
+            }
+            &.gplusone_btn {
+                background-position: -117px 0;
+            }
+            &.xing_btn {
+                background-position: -175px 0;
+            }
+            &.linkedin_btn {
+                background-position: -234px 0;
+            }
+        }*/
+        .help_info.icon {
+            background-position: -292px 0 !important;
+            width: 41px !important;
+            height: 41px !important;
+            box-shadow: none;
+            border:0;
+            &.display .info {
+                width: auto !important;
+                min-width: 100px !important;
+                height: auto !important;
+                background:#eee;
+                padding:.5em;
+            }
+        }
+/*        .switch.off {
+            display: none;
+        }*/
+    }
+/*    &.sprite-de_DE{
+        li{
+            .dummy_btn,.help_info.icon{
+                background: url("../img/social-buttons_sprite.svg") no-repeat scroll left top rgba(0, 0, 0, 0);
+                background-size: auto 40px;
+                height: 100%;  
+
+            }
+
+        }
+    }*/
+}
+.no-svg.social_share_privacy.sprite-de_DE li .dummy_btn,
+.no-svg.social_share_privacy.sprite-de_DE li .help_info.icon {
+    background-image: url("../img/social-buttons_sprite.png"); 
+}

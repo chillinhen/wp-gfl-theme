@@ -10,5 +10,5 @@
     	<div class="col-md-12">
 		<?php get_template_part('partials/article', 'list_carousel'); ?>
     	</div>
-	    <?php wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly  ?>
+	    <?php wp_reset_postdata();?>
 <?php endif; ?>

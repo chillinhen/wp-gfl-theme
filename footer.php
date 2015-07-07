@@ -1,38 +1,27 @@
-<footer role="contentinfo">
+</section>
+<footer>
     <div class="container">
-    <div id="inner-footer" class="row clearfix">
-	<hr />
-	<div id="widget-footer" class="clearfix row">
-	    <?php if (!function_exists('dynamic_sidebar') || !dynamic_sidebar('footer1')) : ?>
-	    <?php endif; ?>
-	    <?php if (!function_exists('dynamic_sidebar') || !dynamic_sidebar('footer2')) : ?>
-	    <?php endif; ?>
-	    <?php if (!function_exists('dynamic_sidebar') || !dynamic_sidebar('footer3')) : ?>
-	    <?php endif; ?>
-	</div>
+        <div class="row">
+            <?php if (is_active_sidebar('footer1')) : ?>
 
-	<nav class="clearfix">
-	    <?php wpGLF_meta_nav(); ?>
-	    <?php #wp_bootstrap_main_nav(); ?>
-	</nav>
+                <?php dynamic_sidebar('footer1'); ?>
 
-	<p class="pull-right"><a href="http://320press.com" id="credit320" title="By the dudes of 320press">320press</a></p>
+            <?php endif; ?>
+            <?php if (is_active_sidebar('footer2')) : ?>
 
-	<p class="attribution">&copy; <?php bloginfo('name'); ?></p>
+                <?php dynamic_sidebar('footer2'); ?>
 
-    </div> <!-- end #inner-footer -->
+            <?php endif; ?>
+            <?php if (is_active_sidebar('footer3')) : ?>
+
+                <?php dynamic_sidebar('footer3'); ?>
+
+            <?php endif; ?>
+        </div>
     </div>
-
-</footer> <!-- end footer -->
-
-</div> <!-- end #container -->
-
-<!--[if lt IE 7 ]>
-	<script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
-	<script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
-<![endif]-->
-
+</footer>
 <?php wp_footer(); // js scripts are inserted using this function ?>
+
 
 </body>
 

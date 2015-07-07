@@ -24,13 +24,19 @@
 		<?php the_content(); ?>
 				</ul>
 				<div class="clearfix"></div>
-				<a id="prev2" class="prev" href="#">&lt;</a>
-				<a id="next2" class="next" href="#">&gt;</a>
+                                <a id="prev2" class="prev" href="#">
+                                    <i class="fa fa-chevron-left"></i>
+                                </a>
+                                <a id="next2" class="next" href="#">
+                                    <i class="fa fa-chevron-right"></i>
+                                </a>
 				<div id="pager2" class="pager"></div>
 			</div>
 
     </section> <!-- end article section -->
 
-    <?php get_template_part('partials/footer', 'article'); ?>
+  <footer>
+	    <?php get_template_part('partials/edit', 'info'); ?>
+    </footer>
 
 </article> <!-- end article -->
