@@ -45,7 +45,26 @@
             <?php wp_reset_postdata(); ?>
             </li>
         <?php endif; ?>
-        
+            <!--- Sticky --->
+                    <?php
+        $post_args = array(
+            	'posts_per_page' => 1,
+                'post__in' => get_option('sticky_posts'),
+                'ignore_sticky_posts' => 1,
+);
+        $stickyPost = new WP_Query($post_args);
+        $stickyPost->set('post_type', 'post');
+        ?>
+            <?php if ($stickyPost->have_posts()) : ?>
+            <li role="news" class="sticky">
+                <?php while ($stickyPost->have_posts()) : $stickyPost->the_post(); ?>
+                    <?php get_template_part('partials/panel', get_post_format()); ?>
+                    <?php
+                endwhile;
+                wp_reset_postdata();
+                ?>
+            </li>
+    <?php endif; ?>
             <!--- Panels --->
     <?php
 //$parent = $post->ID;
@@ -69,25 +88,6 @@
             ?>
         <?php endif; ?>
         
-        <?php
-        $post_args = array(
-            	'posts_per_page' => 1,
-                'post__in' => get_option('sticky_posts'),
-                'ignore_sticky_posts' => 1,
-);
-        $stickyPost = new WP_Query($post_args);
-        $stickyPost->set('post_type', 'post');
-        ?>
-            <?php if ($stickyPost->have_posts()) : ?>
-            <li role="news" class="sticky">
-                <?php while ($stickyPost->have_posts()) : $stickyPost->the_post(); ?>
-                    <?php get_template_part('partials/panel', get_post_format()); ?>
-                    <?php
-                endwhile;
-                wp_reset_postdata();
-                ?>
-            </li>
-    <?php endif; ?>
 </ul>
     </div><!--end mainboard -->
     <!--        <section role="gallery" class="row clearfix">

@@ -64,7 +64,7 @@ jQuery(document).ready(function ($) {
     }
     
      
-         //give active-class to first carousel item
+    //give active-class to first carousel item
     $('.carousel-inner').each(function () {
         $(this).children('.item:first-child').addClass('active');
     });
@@ -72,14 +72,17 @@ jQuery(document).ready(function ($) {
         $(this).children('li:first-child').addClass('active');
     });
   
-    // Responsive mobble test
-    if ($('body').hasClass('mobile')) {
-        //alert('ich bin mobile');
+  
+    //detect broken images and remove them
+    // Replace source
+//        $('img').error(function(){
+//                $(this).attr('src', 'missing.png');
+//        });
 
-    }
-    else {
-        //alert('ich bin ein desktop');
-    }
+        // Or, hide them
+        $("img").error(function(){
+                $(this).hide();
+        });
 
     
 });

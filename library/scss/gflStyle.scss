@@ -131,7 +131,21 @@ body > footer {
         }
     }
 }
-
+/*** Pagination ***/
+.pagination{
+    float:right;
+    &:before,
+        &:after {
+        content: " ";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+    a{
+        border:0 !important;
+    }
+}
 /*--------------------------------------------------
 LAYOUT
 --------------------------------------------------*/
@@ -365,11 +379,11 @@ article {
         border-bottom: 5px solid $blue-middle;
         > header{
             background:$blue;
-            > h3{
+             h3{
                 margin:0;
                 text-transform:uppercase;
                 line-height:1.2;
-                > a {
+                 a {
                     padding:.5em 1em;
                     display: block;
                     color:$color-white !important;
@@ -399,11 +413,14 @@ article {
                     height:auto;
                 }
             }
-            *{
+            .page-header *{
                 color:$color-white !important;
                 
             }
         }
+    }
+    aside > &:first-child{
+        margin-top:0;
     }
 }
 /*article.category-news div.tags {
@@ -455,7 +472,7 @@ aside[id*="sidebar"]{
 #tiles {
     list-style-type: none;
     position: relative; /** Needed to ensure items are laid out relative to this container **/
-    margin: -1em;
+    margin: 1em -1em;
     padding: 0;
     @media screen and (max-width:$screen-mini){
         @include column-count(300px,1,avoid);
@@ -473,7 +490,7 @@ aside[id*="sidebar"]{
         @include column-count(300px,3,avoid);
     }
     
-    li {
+    > li {
         border:1px solid $color-border;
         padding: 10px;
         margin-bottom:1em;
@@ -652,6 +669,10 @@ aside[id*="sidebar"]{
             opacity: .5;
         }
     }
+}
+/**** Bildungsticker *****/
+div#bildungsklick_ticker{
+    overflow:none !important;
 }
 /*.tags {
     footer &{

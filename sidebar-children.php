@@ -1,21 +1,26 @@
-<?php
-$parent = $post->ID;
-$filter = array(
-    'post_type' => 'page',
-    'post_parent' => $parent,
-    'post_status' => 'publish',
-    'orderby' => 'menu_order',
-    'order' => 'ASC',
-);
-$childLoop = new WP_Query($filter);
+<?php 
+$sidebar_articles = array();
+for ($label = 1; $label <= 3; $label++) :
+    $sidebar_articles[] = get_field('sidebar-artikel_0' . $label);
+
+endfor;
 ?>
+
+
 <?php
-if ($childLoop->have_posts()) :
-    while ($childLoop->have_posts()) : $childLoop->the_post();
-        get_template_part('partials/article-sidebar', get_post_format());
-    endwhile;
-    wp_reset_query();
-else :
-    get_sidebar('articles');
-endif;
+
+foreach ($sidebar_articles as $post) :
+    if ($post) :
+        setup_postdata($post);
+        get_template_part('partials/article', get_post_format());
+    endif;
+    wp_reset_postdata();
+endforeach;
+
+
+foreach ($sidebar_articles as $post) :
+    if (!($post)) :
+        get_sidebar();
+    endif;
+endforeach;
 ?>

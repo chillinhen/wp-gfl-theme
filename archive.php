@@ -4,7 +4,6 @@
     <div class="container">
 
         <?php if (have_posts()) : ?>
-        <div class="col-md-12">
             <div class="page-header">
                         <?php if (is_category()) { ?>
                            <h2>
@@ -32,7 +31,6 @@
                             </h2>
                         <?php } ?>
                     </div>
-        </div>
             <?php if (is_category() || is_tag()) : ?>
                 <div id="main-board" class="col-md-12" role="pinboard">
                     
