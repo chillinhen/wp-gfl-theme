@@ -1,25 +1,44 @@
- <?php if (has_post_thumbnail()) :
-        ?>
-        <div class="thumbnail">
-            <?php get_template_part('partials/post-thumbnail'); ?>
-        </div>
-    <?php
-    endif;?>
 <?php
-$article_sidebar = array();
-for ($label = 1; $label <= 3; $label++)
-{
-    $article_sidebar[] = get_field('sidebar_artikel_0' .$label);
-}
-//print articles
-foreach ($article_sidebar as $key => $post) {
-    if($post) :
+	$post_object_01 = get_field('sidebar-artikel_01');
+
+	if ($post_object_01):
+
+	    // override $post
+	    $post = $post_object_01;
         setup_postdata($post);
-        get_template_part('partials/article', get_post_format());
-        wp_reset_postdata();
-    else :
-        get_sidebar();?>
-        <?php break;
-    endif;
-}
 ?>
+    	
+	<?php get_template_part('partials/article', get_post_format()); ?>
+    	
+	    <?php wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly  ?>
+
+	<?php endif; ?>
+	<?php
+	$post_object_02 = get_field('sidebar-artikel_02');
+
+	if ($post_object_02):
+
+	    // override $post
+	    $post = $post_object_02;
+	    setup_postdata($post);
+	    ?>
+    	
+		<?php get_template_part('partials/article', get_post_format()); ?>
+    	
+	    <?php wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly ?>	
+	<?php endif; ?>
+	<?php
+	$post_object_03 = get_field('sidebar-artikel_03');
+
+	if ($post_object_03):
+
+	    // override $post
+	    $post = $post_object_03;
+	    setup_postdata($post);
+	    ?>
+    	
+		<?php get_template_part('partials/article', get_post_format()); ?>
+    	
+	    <?php wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly  ?>
+	<?php endif;
+	?>

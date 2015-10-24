@@ -1,66 +1,105 @@
-<?php 
+<?php get_header(); ?>
+<section role="content">
+    <div class="container">
+        <div id="content" class="clearfix row">
+            <div id="main" class="col-md-8">
 
-class Bootstrap_walker extends Walker_Nav_Menu{
-
-  function start_el(&$output, $object, $depth = 0, $args = Array(), $current_object_id = 0){
-
-	 global $wp_query;
-	 $indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
-	
-	 $class_names = $value = '';
-	
-		// If the item has children, add the dropdown class for bootstrap
-		if ( $args->has_children ) {
-			$class_names = "dropdown ";
-		}
-	
-		$classes = empty( $object->classes ) ? array() : (array) $object->classes;
-		
-		$class_names .= join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $object ) );
-		$class_names = ' class="'. esc_attr( $class_names ) . '"';
-       
-   	$output .= $indent . '<li id="menu-item-'. $object->ID . '"' . $value . $class_names .'>';
-
-   	$attributes  = ! empty( $object->attr_title ) ? ' title="'  . esc_attr( $object->attr_title ) .'"' : '';
-   	$attributes .= ! empty( $object->target )     ? ' target="' . esc_attr( $object->target     ) .'"' : '';
-   	$attributes .= ! empty( $object->xfn )        ? ' rel="'    . esc_attr( $object->xfn        ) .'"' : '';
-   	$attributes .= ! empty( $object->url )        ? ' href="'   . esc_attr( $object->url        ) .'"' : '';
-
-   	// if the item has children add these two attributes to the anchor tag
-   	// if ( $args->has_children ) {
-		  // $attributes .= ' class="dropdown-toggle" data-toggle="dropdown"';
-    // }
-
-    $item_output = $args->before;
-    $item_output .= '<a'. $attributes .'>';
-    $item_output .= $args->link_before .apply_filters( 'the_title', $object->title, $object->ID );
-    $item_output .= $args->link_after;
-
-    // if the item has children add the caret just before closing the anchor tag
-    if ( $args->has_children ) {
-    	$item_output .= '<b class="caret"></b></a>';
-    }
-    else {
-    	$item_output .= '</a>';
-    }
-
-    $item_output .= $args->after;
-
-    $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $object, $depth, $args );
-  } // end start_el function
+        <div class="page-header">
+        <?php if (is_category()) { ?>
+            <h1 class="archive_title h2">
+                <span><?php _e("Posts Categorized:", "wpbo"); ?></span> <?php single_cat_title(); ?>
+            </h1>
+        <?php } elseif (is_tag()) { ?> 
+            <h1 class="archive_title h2">
+                <span><?php _e("Posts Tagged:", "wpbo"); ?></span> <?php single_tag_title(); ?>
+            </h1>
+        <?php } elseif (is_author()) { ?>
+            <h1 class="archive_title h2">
+                <span><?php _e("Posts By:", "wpbo"); ?></span> <?php get_the_author_meta('display_name'); ?>
+            </h1>
+        <?php } elseif (is_day()) { ?>
+            <h1 class="archive_title h2">
+                <?php printf( __( 'Daily Archives: <span>%s</span>', 'wpbo' ), get_the_date() ); ?>
+            </h1>
+        <?php } elseif (is_month()) { ?>
+            <h1 class="archive_title h2">
+                <?php printf( __( 'Monthly Archives: <span>%s</span>', 'wpbo' ), get_the_date( _x( 'F Y', 'monthly archives date format', 'wpbo' ) ) ); ?>
+            </h1>
+        <?php } elseif (is_year()) { ?>
+            <h1 class="archive_title h2">
+				<?php printf( __( 'Yearly Archives: <span>%s</span>', 'wpbo' ), get_the_date( _x( 'Y', 'yearly archives date format', 'wpbo' ) ) ); ?>
+            </h1>
+        <?php } ?>
+            
+        <?php if ( !get_query_var( 'paged' ) ) { 
+          //Description for Taxonomy ?>
+          <?php echo wpautop( term_description() ); ?>
+        <?php } ?>
         
-  function start_lvl(&$output, $depth = 0, $args = Array()) {
-    $indent = str_repeat("\t", $depth);
-    $output .= "\n$indent<ul class=\"dropdown-menu\">\n";
-  }
-      
-	function display_element( $element, &$children_elements, $max_depth, $depth=0, $args, &$output ){
-    $id_field = $this->db_fields['id'];
-    if ( is_object( $args[0] ) ) {
-        $args[0]->has_children = ! empty( $children_elements[$element->$id_field] );
-    }
-    return parent::display_element( $element, $children_elements, $max_depth, $depth, $args, $output );
-  }        
-}
+        </div>
 
-?>
+        <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+
+        <article id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?> role="article">
+
+            <header>
+
+                <h3 class="h2"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
+
+                <?php get_template_part('partials/content', 'meta');?>
+
+            </header> <!-- end article header -->
+
+            <section class="post_content">
+
+                <?php the_post_thumbnail( 'wpbs-featured' ); ?>
+
+                <?php the_excerpt(); ?>
+
+            </section> <!-- end article section -->
+
+            <footer>
+
+            </footer> <!-- end article footer -->
+
+        </article> <!-- end article -->
+
+        <?php endwhile; ?>	
+
+        <?php if (function_exists('page_navi')) { // if expirimental feature is active ?>
+
+            <?php page_navi(); // use the page navi function ?>
+
+        <?php } else { // if it is disabled, display regular wp prev & next links ?>
+            <nav class="wp-prev-next">
+                <ul class="pager">
+                    <li class="previous"><?php next_posts_link(_e('&laquo; Older Entries', "wpbo")) ?></li>
+                    <li class="next"><?php previous_posts_link(_e('Newer Entries &raquo;', "wpbo")) ?></li>
+                </ul>
+            </nav>
+        <?php } ?>
+
+
+        <?php else : ?>
+
+        <article id="post-not-found">
+            <header>
+                <h1><?php _e("No Posts Yet", "wpbo"); ?></h1>
+            </header>
+            <section class="post_content">
+                <p><?php _e("Sorry, What you were looking for is not here.", "wpbo"); ?></p>
+            </section>
+            <footer>
+            </footer>
+        </article>
+
+        <?php endif; ?>
+
+    </div> <!-- end #main -->
+
+    <?php get_sidebar(); // sidebar 1 ?>
+
+</div> <!-- end #content -->
+</section>
+
+<?php get_footer(); ?>

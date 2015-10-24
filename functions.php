@@ -1,40 +1,45 @@
 <?php
-
 add_action('after_setup_theme', 'wpGFL_theme_setup');
 
 function wpGFL_theme_setup() {
     
     add_image_size( 'wpbs-featured-carousel', 1024, 506, true);
+    add_image_size( 'wpbs-page-float', 512, 300, true);
+    
+    add_theme_support( 'custom-header', $args);
+    $args = array(
+            'width'         => 1024,
+            'height'        => 506,
+            'default-image' => get_template_directory_uri() . '/library/img/default-header.jpg',
+    );
     
     // Adding Translation Option
     load_theme_textdomain('wpGFL', get_stylesheet_directory_uri() . '/languages');
 
     //remove custom background temporarily - maybe we can use it later
     // remove_theme_support('custom-background');
+    // deregister parent script
+      add_action('wp_enqueue_scripts', 'register_modernizr');
+
+    function register_modernizr() {
+        wp_deregister_script('modernizr', get_template_directory_uri().'/library/js/modernizr.full.min.js');
+        wp_enqueue_script('modernizr', 'https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js', array('jquery'), '1.2', true);
+    }
     //init scripts
     if (!function_exists("my_scripts")) {
-	if (!is_admin()) {
+        if (!is_admin()) {
 
-	    function my_scripts() {
+            function my_scripts() {
+                
+                wp_enqueue_script('custom', get_stylesheet_directory_uri() . '/library/js/custom.js', array('jquery'), '1.2', true);
+                if ( wp_is_mobile() ) {
+                    wp_enqueue_script('responsive', get_stylesheet_directory_uri() . '/library/js/responsive.js', array('custom', 'jquery'), '1.0', true);
+                }
+            }
 
-		//Woodmark
-
-		//carouFredSel
-		wp_register_script('carouFredSel', get_stylesheet_directory_uri() . '/library/js/jquery.carouFredSel-6.2.1-packed.js', array('jquery'), '6.2.1');
-		wp_enqueue_script('carouFredSel');
-		
-		//masonry
-		wp_register_script('masonry', get_stylesheet_directory_uri() . '/library/js/masonry.pkgd.min.js', array('jquery'), '1.0');
-		wp_enqueue_script('masonry');
-
-		//custom.js
-		wp_register_script('custom', get_stylesheet_directory_uri() . '/library/js/custom.js', array('jquery'), '1.2');
-		wp_enqueue_script('custom');
-	    }
-
-	}
+        }
     }
-    
+
 
     add_action('wp_enqueue_scripts', 'my_scripts');
 
@@ -43,13 +48,13 @@ function wpGFL_theme_setup() {
 	if (!is_admin()) {
 
 	    function my_styles() {
-		wp_register_style('gflStyle', get_stylesheet_directory_uri() . '/library/css/gflStyle.css', 'style', '1.0', 'screen');
-		wp_enqueue_style('gflStyle');
+                //wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
+		wp_enqueue_style('gflStyle', get_stylesheet_directory_uri() . '/library/css/gflStyle.css', 'style', '1.0', 'screen');
 
 		wp_register_style('googleFonts', 'http://fonts.googleapis.com/css?family=PT+Sans:400,700,700italic,400italic|PT+Sans+Narrow|PT+Sans+Caption|Open+Sans:400,400italic,600,600italic,700,700italic|Open+Sans+Condensed:300|Lato:400,700,300', 'style', '1.0', 'screen');
 		wp_enqueue_style('googleFonts');
 
-		wp_register_style('fontawesome', '//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css', 'style', '4.1.0', 'screen');
+		wp_register_style('fontawesome', '//netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css', 'style', '4.4.0', 'screen');
 		wp_enqueue_style('fontawesome');
 	    }
 
@@ -106,7 +111,7 @@ function gfl_bootstrap_main_nav() {
     function remove_sidebars() {
 	#unregister_sidebar('footer1');
 	#unregister_sidebar('footer2');
-	#unregister_sidebar('footer3');
+	unregister_sidebar('footer3');
 	#unregister_sidebar('sidebar1');
 	unregister_sidebar('sidebar2');
     }
@@ -117,24 +122,23 @@ function gfl_bootstrap_main_nav() {
 	 register_sidebar(array(
       'id' => 'footer1',
       'name' => 'Footer 1',
-      'before_widget' => '<div id="%1$s" class="widget col-sm-4 %2$s">',
+      'before_widget' => '<div id="%1$s" class="col-sm-6 widget %2$s">',
       'after_widget' => '</div>',
       'before_title' => '<h4 class="widgettitle">',
       'after_title' => '</h4>',
     ));
-
     register_sidebar(array(
       'id' => 'footer2',
       'name' => 'Footer 2',
-      'before_widget' => '<div id="%1$s" class="widget col-sm-4 %2$s">',
+      'before_widget' => '<div id="%1$s" class="col-sm-6 widget %2$s">',
       'after_widget' => '</div>',
       'before_title' => '<h4 class="widgettitle">',
       'after_title' => '</h4>',
     ));
-        register_sidebar(array(
+    register_sidebar(array(
       'id' => 'footer3',
       'name' => 'Footer 3',
-      'before_widget' => '<div id="%1$s" class="widget col-sm-4 %2$s">',
+      'before_widget' => '<div id="%1$s" class="col-sm-12 widget %2$s text-center">',
       'after_widget' => '</div>',
       'before_title' => '<h4 class="widgettitle">',
       'after_title' => '</h4>',
@@ -155,6 +159,12 @@ function gfl_bootstrap_main_nav() {
 }
 
 //end theme setup
+// Videos in WordPress Responsive einbetten
+add_filter('embed_oembed_html', 'my_embed_oembed_html', 99, 4);
+function my_embed_oembed_html($html, $url, $attr, $post_id) {
+	return '<div class="elastic-video">' . $html . '</div>';
+}
+
 //enable excerpt
 remove_filter('get_the_excerpt', 'wp_trim_excerpt');
 add_filter('get_the_excerpt', 'gfl_trim_excerpt');
@@ -167,7 +177,7 @@ function gfl_trim_excerpt($text) {
 	$text = apply_filters('the_content', $text);
 	$text = str_replace(']]>', ']]&gt;', $text);
 	$text = strip_tags($text, '<em><strong><i><b><a><p><li><ul><ol><td><tr><tbody><table><h5><h4><h3><h2><h1>');
-	$excerpt_length = apply_filters('excerpt_length', 15);
+	$excerpt_length = apply_filters('excerpt_length', 25);
 	$excerpt_more = apply_filters('excerpt_more', ' ' . '[...]');
 	$words = preg_split("/[\n\r\t ]+/", $text, $excerpt_length + 1, PREG_SPLIT_NO_EMPTY);
 	if (count($words) > $excerpt_length) {

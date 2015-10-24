@@ -1,0 +1,46 @@
+@import "colors.scss";
+@import "typography.scss";
+@import "extensions.scss";
+
+
+#sfsi-widget-2{display:none;}
+
+
+
+/*** Meta Nav Hack ***/
+#meta-nav{
+    @include flex-container;
+    align-content:flex-end;
+    * {
+        line-height:1.4;
+        padding-top:0;
+        padding-bottom:0;
+    }
+    > div{
+        flex:2;
+    }
+    > .navbar-form {
+        flex:1;
+        margin:3px 0 0 0;
+        .form-group {
+            @include flex-container;
+        > input {
+           flex:7;
+           padding-left:1em;
+        }
+        > i {
+            flex:1;
+            padding-left:1em;
+        }
+        }
+    }
+    .navbar-nav{
+        font-size: 1em;
+        > li{
+            > a{
+                padding:10px 12px;
+            }
+        }
+    }
+}
+

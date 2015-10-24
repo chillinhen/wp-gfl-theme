@@ -1,3 +1,4 @@
+// Core variables and mixins
 @import "colors.scss";
 // ------------------------------------
 // Font attributes.
@@ -12,12 +13,12 @@ $font-indent: 2em;
 // Heading attributes.
 // ------------------------------------
 
-$font-size-h1: $font-size * 1.46;
-$font-size-h2: $font-size * 1.2;
-$font-size-h3: $font-size * 1.06;
-$font-size-h4: $font-size * 1;
-$font-size-h5: $font-size * 11;
-$font-size-h6: $font-size * 1;
+$font-size-h1: 21px;
+$font-size-h2: 18px;
+$font-size-h3: 16px;
+$font-size-h4: $font-size-h3;
+$font-size-h5: $font-size;
+$font-size-h6: $font-size;
 
 
 // ------------------------------------
@@ -37,13 +38,49 @@ $font-headings:'Lato', Helvetica, Arial, sans-serif;
     line-height: $line;
     font-weight: $weight;
 }
+/* Headlines */
+h1,h2,h3,h4{
+    @include headline-style($font-headings,$blue,1,400);
+    body.page #main article.page &{
+        line-height: 1.2;
+        margin-top:0;
+    }
+}
+h1 {
+    font-size: $font-size-h1;
+/*    @media screen and (max-width:$screen-xs){
+    font-size: $font-size-h1 * 0.9;
+    }*/
+    body.page #main article.page .post_content &{
+        font-size: $font-size-h2;
+    }
+    line-height: 1.4;
+    color:$blue-dark;
+    .box article &{
+        font-size: $font-size-h2;
+        font-weight: 600;
+    }
+}
+h2 {
+    font-size:$font-size-h2;
+   body.page #main article.page .post_content{font-size: $font-size-h3;}
+    line-height: 1.2;
+}
+h3,h4 {
+    font-size:$font-size-h3;
+    body.page #main article.page .post_content{font-size: $font-size;}
+}
+
+h5, h6 {
+    font-size:$font-size-h4;
+}
+
 //----------------------------
 // Other Styles 
 //----------------------------
 p, .lead{
     font-size:$font-size;
     line-height: $font-line;
-    /*    font-size:0.9375rem;*/
     font-weight: normal;
 }
 .kursiv{
@@ -53,5 +90,11 @@ p, .lead{
 }
 /* Kleinerer Text */
 .s {
-    font-size: 0.9em;
+    font-size: 0.8em;
 }
+/* Absaetze */
+p {
+    font-size:$font-size;
+    line-height: 1.4;
+}
+

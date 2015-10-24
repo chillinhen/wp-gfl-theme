@@ -2,11 +2,16 @@
 
     <header>
         
-        <div class="page-header"><h1 class="h2"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h1></div>
+        <div class="page-header"><h1><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h1></div>
         <?php #get_template_part('partials/social','bookmarks');?>
     </header> <!-- end article header -->
 
     <section class="post_content clearfix">
+               <?php  if (has_post_thumbnail()) : ?>
+        <div class="thumbnail col-sm-6">
+            <?php the_post_thumbnail('wpbs-page-float'); ?>
+        </div>
+    <?php endif; ?>
         <?php the_content(); ?>
     </section> <!-- end article section -->
 

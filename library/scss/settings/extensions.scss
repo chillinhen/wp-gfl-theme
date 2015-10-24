@@ -1,13 +1,26 @@
 @import "colors.scss";
 @import "typography.scss";
 
+/* Mediaqueries breakpoints */
+$screen-mini: 320px;
+$screen-xs: 480px;
+$screen-maxPhone: 736px;
+$screen-smallPad:600px;
+$screen-sm: 768px;
+$screen-md: 992px;
+$screen-lg: 1200px;
+
 /*** resets ***/
+.border-box{
+    -moz-box-sizing: border-box;
+        box-sizing: border-box;
+}
 .reset-border {
     border: 0;
     border-color: transparent;
 }
 .foo-bar{
-     border-left:1px solid $foo;
+    border-left:1px solid $foo;
     border-right:1px solid $foo;
 }
 @mixin blockquote() {
@@ -16,15 +29,119 @@
     quotes:"\201C""\201D""\2018""\2019";
 }
 /**Sticky Footer***/
-$footer-height:260px;
+$footer-height:120px;
 
 /**** carousel****/
-$carouselHeight:350px;
+@mixin carouselHeight{
+    @media screen and (max-width:$screen-sm){
+        height:220px;
+    }
+    @media screen and (min-width:$screen-sm + 1) and (max-width:$screen-md){
+        height:300px;
+    }
+    @media screen and (min-width:$screen-md){
+        height:400px;
+    }
+}
+@mixin containerWidth{
+    @media screen and (min-width:$screen-md){
+        width:1170px;
+    }
+}
 
+.carousel-fade {
+    .carousel-inner {
+        position:relative;
+        height:inherit;
+        width:inherit;
+        .item {
+            transition-property: opacity;
+            position: absolute;
+            top:0;
+            left:0;
+        }
+
+        .item,
+        .active.left,
+        .active.right {
+            opacity: 0;
+        }
+
+        .active,
+        .next.left,
+        .prev.right {
+            opacity: 1;
+        }
+
+        .next,
+        .prev,
+        .active.left,
+        .active.right {
+            left: 0;
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+    .carousel-control {
+        z-index: 2;
+    }
+}
+/***Tables***/
+@mixin table-styling($bg-color,$weight,$bd-width,$bd-style,$odd-color){
+    table{
+        font-weight:$weight;
+        background-color:$bg-color;
+        border{
+            width:$bd-width;
+            style:$bd-style;
+            color:$color-border;
+        }
+        caption *{
+            font-size: smaller;
+            color:lighten($color-text,50%);
+            text-align: right;
+        }
+        tr, thead, tfoot{
+            background-color:transparent !important;
+            th, td{
+                background-color:transparent; 
+            }
+            &:hover{
+                th, td{
+                    font-weight:bold;
+                }  
+            }
+        }
+        tbody {
+            tr:nth-child(odd){
+              th, td{
+                background-color:lighten($odd-color,50%); 
+            }  
+            }
+        }
+    }
+}
 /***box attributes***/
 @mixin border-radius($rd){
     -webkit-border-radius: $rd;
     border-radius: $rd;
+}
+
+/**** Flexbox****/
+@mixin flex-container{
+    display:flex;
+    display:-webkit-flex;
+}
+
+@mixin column-count($width,$count,$break-inside){
+-webkit-columns: $width $count;
+   -moz-columns: $width $count;
+        columns: $width $count;
+        > *{
+            -webkit-column-break-inside: $break-inside; /* Chrome, Safari, Opera */
+          page-break-inside: $break-inside; /* Firefox */
+               break-inside: $break-inside; /* IE 10+ */
+        }
 }
 /*** Shadow ***/
 .shadow {
@@ -32,13 +149,17 @@ $carouselHeight:350px;
     box-shadow: 1px 1px 6px 2px rgba(0,0,0,.2);
 }
 .inset {text-shadow: -1px -1px 0px $color-shadow, 1px 1px 0px lighten($color-shadow,100%);}
+@mixin text-shadow($hor, $ver, $col){
+    text-shadow: $hor $ver $col;
+}
 
 /**** caret ****/
-@mixin caret-right-style ($size) {
+@mixin caret-right-style ($size,$pd-l) {
     border-bottom: $size solid transparent;
     border-left: $size solid currentColor;
     border-top: $size solid transparent;
     border-width: $size 0 $size $size; 
+    padding-left:$pd-l;
 }
 @mixin caret-down-style ($size) {
     border-bottom-color: transparent;
@@ -62,4 +183,13 @@ $carouselHeight:350px;
     opacity: $op;
     margin-left:$mg-le;
     font-size:$size;
+}
+
+/*** Transitions ***/
+@mixin transition ($item, $time, $method){
+     -webkit-transition: $item $time $method;
+    -moz-transition: $item $time $method;
+    -ms-transition: $item $time $method;
+    -o-transition: $item $time $method;
+    transition: $item $time $method;
 }

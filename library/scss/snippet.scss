@@ -1,50 +1,44 @@
+.navbar-responsive-collapse{
+    background: $blue-dark;
+     .navbar-nav {
+            margin-left: 0;
+            margin-right:0;
+            margin-top:0;
+            > li {
+                border-top:1px solid $color-white;
+                &:first-child{
+                    border:0;
+                }
+                > a, > a:hover, a:focus {color:$color-white;}
+                &.active {
+                   > a, > a:hover, a:focus {
+                       color:$color-white;
+                       background: $blue-middle;
+                   }  
+                }
+            }
+        }
+}
+
+
+
+
+
+
+
+
 /**main navigation ***/
 #main-nav {
-    padding-top:2em;
-}
-.nav-justified{
-    font-family:$font-base;
-    font-size:1em;
-    font-weight:normal;
-    text-transform: uppercase;
-}
-.dropdown-menu{
-   
-}
-
-
-
-
-.row{
-    &.banner{
-       &:after {
-            background: url("../img/maske.svg") no-repeat scroll center center transparent;
-            background-size: 100% auto;
-            bottom: -.8em;
-            content: " ";
-            display: block;
-            height: 250px;
-            left: 0;
-            position: absolute;
-            width: 100%;
-            z-index: 20;
-        }
+    @media screen and (min-width:$screen-xs){
+       padding-top:2em; 
     }
+    
+}
+.navbar{
+    border:0;
+    min-height: auto;
+}
+.navbar-collapse.collapse{
+    height:auto;
+}
 
-    &.brand {
-        padding:0;
-        position: absolute;
-        bottom: 0;
-        left:0;
-        width: 100%;
-        z-index: 30;
-        margin: 0;
-        [class*='col-'] {
-            height:100%;
-        }
-    }
-}
-.no-svg.row.banner:after {
-    background: url("../img/maske.png") no-repeat scroll center center transparent;
-    background-size: 100% auto; 
-}

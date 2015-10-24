@@ -1,7 +1,21 @@
-    <?php #get_template_part('partials/post-thumbnail');?>
-    <?php if (is_active_sidebar('sidebar1')) : ?>
+<?php #get_template_part('partials/post-thumbnail'); ?>
 
-        <?php dynamic_sidebar('sidebar1'); ?>
-<?php if (function_exists (VSslideshow_slideshow)) VSslideshow_slideshow(); ?>
+<?php if (is_active_sidebar('sidebar1')) : ?>
+    <?php dynamic_sidebar('sidebar1'); ?>
+<?php endif; ?>
 
-    <?php endif; ?>
+<!-- is there a vertical gallery ??? -->
+<?php $post_object = get_field('gallery-vertical'); ?>
+<?php
+if ($post_object):
+    // override $post
+    $post = $post_object;
+    setup_postdata($post);
+    ?>
+    <div class="gallery-vertical">
+        <?php get_template_part('partials/article', 'list_carousel'); ?>
+    </div>
+    <?php wp_reset_postdata(); ?>
+
+<?php endif; ?>
+<!-- end gallery -->

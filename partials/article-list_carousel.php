@@ -1,4 +1,4 @@
-
+<h2>Carousel Gallery</h2>
 <article id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?> role="article">
 
     <header>
@@ -19,19 +19,8 @@
 
     <section class="post_content clearfix" itemprop="articleBody">
 
-	<div class="list_carousel">
-				<ul id="caroufredsel">
 		<?php the_content(); ?>
-				</ul>
-				<div class="clearfix"></div>
-                                <a id="prev2" class="prev" href="#">
-                                    <i class="fa fa-chevron-left"></i>
-                                </a>
-                                <a id="next2" class="next" href="#">
-                                    <i class="fa fa-chevron-right"></i>
-                                </a>
-				<div id="pager2" class="pager"></div>
-			</div>
+
 
     </section> <!-- end article section -->
 

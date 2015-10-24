@@ -1,15 +1,15 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class('panel clearfix'); ?> role="article">
 
-    <header class="clearfix">
-	<div class="pull-left">
+    <header>
+	<div>
 	    <?php the_post_thumbnail('wpbs-featured-home'); ?>
 	</div>
 
 	<hgroup class="teaser-header">
 	    <h3 class="single-title" itemprop="headline">
-		<a href="<?php echo get_permalink(); ?>">
+<!--		<a href="<?php #echo get_permalink(); ?>">-->
 		    <?php the_title(); ?>
-		</a>
+<!--		</a>-->
 	    </h3>
 	</hgroup>
     </header>

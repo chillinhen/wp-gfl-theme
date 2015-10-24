@@ -1,0 +1,33 @@
+/* Headlines */
+p, .lead {
+  font-size: 15px;
+  line-height: 1.45;
+  /*    font-size:0.9375rem;*/
+  font-weight: normal; }
+
+.kursiv {
+  font-style: italic;
+  font-size: 11.25px;
+  line-height: 18.75px; }
+
+/* Kleinerer Text */
+.s {
+  font-size: 0.9em; }
+
+/*** resets ***/
+.reset-border {
+  border: 0;
+  border-color: transparent; }
+
+/**Sticky Footer***/
+/***box attributes***/
+/*** Shadow ***/
+.shadow {
+  -webkit-box-shadow: 1px 1px 6px 2px rgba(0, 0, 0, 0);
+  box-shadow: 1px 1px 6px 2px rgba(0, 0, 0, 0); }
+
+.inset {
+  text-shadow: -1px -1px 0px #202020, 1px 1px 0px white; }
+
+/**** caret ****/
+/**** social media icons ****/

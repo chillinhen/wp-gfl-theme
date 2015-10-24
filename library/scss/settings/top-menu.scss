@@ -1,0 +1,59 @@
+// Core variables and mixins
+@import "shame.scss";
+
+.navbar-fixed-top{
+    &.navbar-default{
+        background: $blue-dark;
+        height: 44px;
+        &, & *{
+            border-bottom: 0 !important;
+        }
+        *, a{
+            color:$color-white !important;
+        }
+    }
+    
+    .nav-tabs.nav-justified {
+        > li{
+            &.active{
+                > a{
+                    background:$blue;
+                    color:$color-white !important;
+                    padding-bottom: 1em;
+                    @extend .reset-border;
+                    @include border-radius(0);
+                    > .caret{
+                        color:$color-white !important;
+                    }
+                }
+            }
+        }
+
+    }
+
+
+    > #main-nav{
+        @include containerWidth;
+        margin:0px auto;
+        padding-top:0;
+    }
+    .navbar-brand{ 
+        background: url("../img/Logo.jpg") no-repeat scroll 50% 15% transparent;
+        text-indent: -800px;
+        display: block;
+        overflow: hidden;
+        background-size: 100% auto;
+        width: 100px;
+        height:100px;
+        position: absolute;
+    }
+    ul.nav{
+        margin-left: 100px;
+        &.nav-tabs.nav-justified{
+            width:auto;
+        }
+    }/*** ToDo: hier besser Flexbox ***/
+
+}
+
+        

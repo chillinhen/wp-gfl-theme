@@ -32,56 +32,68 @@
 
     <body <?php body_class(); ?>>
 
-	<header role="banner" class="banner" id="header">
+	<header role="banner" id="header">
             
 	    <div class="row banner">
                 <div class="container">
-		<div class="col-md-2">
-		    <a class="logo" title="<?php echo get_bloginfo('description'); ?>" href="<?php echo home_url(); ?>"><img src="<?php echo get_stylesheet_directory_uri(); ?>/library/img/Logo.jpg" alt="<?php bloginfo('name'); ?>"></a>
-		</div>
-		<div class="col-md-10">
+                    <div class="col-sm-2">
+                        <a class="logo" title="<?php echo get_bloginfo('description'); ?>" href="<?php echo home_url(); ?>"><img src="<?php echo get_stylesheet_directory_uri(); ?>/library/img/Logo.jpg" alt="<?php bloginfo('name'); ?>"></a>
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+		<div class="col-sm-10 hidden-xs">
 		    <?php if (is_front_page()) : ?>
 			<?php get_template_part('partials/carousel'); ?>
-                    <?php elseif (is_search()) :
-                        add_custom_background();?>
+                    <?php elseif (is_search() || is_single() || is_category()) :?>
+                    <img src="<?php header_image(); ?>" alt="" />
 
 
                     <?php elseif (is_page()) : ?>
-                    
                         <?php get_template_part('partials/banner'); ?>
+                    <?php else : ?>
+                    <div class="item">
+                            <img src="<?php header_image(); ?>" height="<?php echo get_custom_header()->height; ?>" width="<?php echo get_custom_header()->width; ?>" alt="" />
+                        </div>
 		    <?php endif; ?>
 		</div>
                 </div>
-	    </div>
-	    <div class="row brand">
+	    </div>	
+	</header>
+	<section role="content">
+	    <nav class="container">
+                    <div class="row brand">
                 <div class="container">
-		    <div class="col-md-3">
+		    <div class="col-sm-3 hidden-xs hidden-sm">
 			    <a id="brand" href="<?php echo home_url(); ?>">
 			    <?php bloginfo('name'); ?>
 			    - <?php echo get_bloginfo('description'); ?>
 			    </a>
-		    </div>
-		    <div class="col-md-9">
-			<div id="meta-nav">
-			    <?php //if(of_get_option('search_bar', '1')) {?>
-			    <form class="navbar-form navbar-right" role="search" method="get" id="searchform" action="<?php echo home_url('/'); ?>">
-				<div class="form-group">
-				    <input name="s" id="s" type="text" class="search-query form-control" autocomplete="off" placeholder="<?php _e('Search', 'wpbootstrap'); ?>" data-provide="typeahead" data-items="4" data-source='<?php echo $typeahead_data; ?>'>
-				    <i class="fa fa-search fa-lg"></i>
-				</div>
-			    </form>
-			    <?php wpGLF_meta_nav(); ?>
-			    <?php //} ?>
-			</div>
+                    </div>
+		    <div class="col-sm-9">
+                        <div id="meta-nav">
+                            <?php //if(of_get_option('search_bar', '1')) {?>
+                            <div class="hidden-xs">
+                                <?php wpGLF_meta_nav(); ?>
+                            </div>
+                            <form class="navbar-form" role="search" method="get" id="searchform" action="<?php echo home_url('/'); ?>">
+                                <div class="form-group">
+                                    <input name="s" id="s" type="text" class="search-query form-control" autocomplete="off" placeholder="<?php _e('Search', 'wpbootstrap'); ?>" data-provide="typeahead" data-items="4" data-source='<?php echo $typeahead_data; ?>'>
+                                    <i class="fa fa-search fa-lg"></i>
+                                </div>
+                            </form>
+                            
+                            <?php //} ?>
+                        </div>
 		    </div>
                 </div>
 	    </div>
-	</header>
-	<section role="content">
-	    <nav id="main-nav" class="container">
 		<div class="navbar navbar-default">
-		    <div class="collapse navbar-collapse navbar-responsive-collapse">
-			<a class="navbar-brand visible-xs-inline-block hidden-lg" title="<?php echo get_bloginfo('description'); ?>" href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a>
+		    <div id="main-nav" class="collapse navbar-collapse navbar-responsive-collapse">
+			<a class="navbar-brand" title="<?php echo get_bloginfo('description'); ?>" href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a>
 			<?php wp_bootstrap_main_nav(); // Adjust using Menus in Wordpress Admin ?>
 
 		    </div>
@@ -89,7 +101,7 @@
 	    </nav>
 	    <div id="breadcrumb" class="container">
 		<div class="row">
-		    <div class="col-md-12">
+		    <div class="col-sm-12">
 			
 			<?php if(!(is_front_page() )) :
 			    breadcrumb_trail(); 

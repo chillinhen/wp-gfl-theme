@@ -1,15 +1,12 @@
 <!-- test version -->
 <?php get_header(); ?>
 <div id="content" class="row">
-    <div class="container">        
+    <div class="container">
         <!-- here the child pages -->
         <?php
         global $post;
         $children = get_pages(array('child_of' => $post->ID));
         ?>
-
-
-
 
         <?php if (is_page() && $post->post_parent) : ?>
 
@@ -18,9 +15,12 @@
                 <?php #get_template_part('partials/social','bookmarks');?>
                 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
                         <?php get_template_part('partials/article', 'page'); ?>
-                    <?php endwhile; ?>		
-                <?php else : ?>
+
+                    <?php endwhile; ?>	
+                    <?php wp_reset_query(); ?>
+
                 <?php endif; ?>
+
             </div>
             <aside id="sidebar1" class="col-md-4" role="complementary">
                 <?php get_sidebar('children'); ?> 
@@ -28,11 +28,14 @@
 
 
         <?php elseif (is_page() && count($children) > 0) : ?>
+
             <div id="main" class="col-md-8">
                 <!--This is a parent-page (with one or more children)-->
+  
                 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
                         <?php get_template_part('partials/article', 'page'); ?>
-                    <?php endwhile; ?>		
+                    <?php endwhile; ?>	
+                    <?php wp_reset_query(); ?>
                 <?php else : ?>
                 <?php endif; ?>
             </div>
@@ -41,26 +44,43 @@
                 <!-- panel loop -->
                 <?php get_sidebar('children'); ?>
             </aside>
+
         <?php else : ?>
+
             <div id="main" class="col-md-8">
                 <!--This is a parent page without children.-->
                 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
                         <?php get_template_part('partials/article', 'page'); ?>
-                    <?php endwhile; ?>		
+                    <?php endwhile; ?>	
+                    <?php wp_reset_query(); ?>
                 <?php else : ?>
                 <?php endif; ?>
             </div>
             <aside id="sidebar1" class="col-md-4" role="complementary">
-                <?php get_sidebar('articles'); ?> 
+                <?php get_sidebar('articles'); ?>
+
             </aside>
 
         <?php endif; ?>
+        
+        <!-- is there a horizontal gfallery ??? -->
+        <?php $post_object = get_field('gallery-horizontal'); ?>
+        <?php
+        if ($post_object):
+            // override $post
+            $post = $post_object;
+            setup_postdata($post);
+            ?>
+            <div class="col-md-12">
+                <?php get_template_part('partials/article', 'list_carousel'); ?>
+            </div>
+            <?php wp_reset_postdata(); ?>
+        
+        <?php endif; ?>
+        <!-- end gallery -->
+
     </div>
-    <section role="gallery" class="row clearfix">
-    <div class="container">
-	<?php get_template_part('partials/gallery','article'); ?>
-    </div>
-</section>
 </div>
+
 
 <?php get_footer(); ?>

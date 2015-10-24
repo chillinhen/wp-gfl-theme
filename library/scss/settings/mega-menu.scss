@@ -1,0 +1,218 @@
+// Core variables and mixins
+@import "shame.scss";
+
+@mixin nav-tab-style($align,$color,$bg){
+    text-align: $align;
+    color:$color;
+    background:$bg;
+    @include border-radius (0);
+}
+@mixin responsive-nav-tab{
+    @include nav-tab-style(left,white,$blue-dark);
+    padding:1em;
+    margin:1px 0 0 0;
+    word-wrap: break-word;
+    white-space: normal;
+    width:100%;
+}
+@mixin active-style {
+    background:$blue;
+    background-image:none !important;
+    color:$color-white;
+}
+
+
+.navbar-toggle {
+    background:$blue-dark;
+    position: absolute;
+    top:1em;
+    right:1em;
+    z-index:20;
+    float: none;
+    padding: .5em;
+    @extend .reset-border;
+    @include border-radius (0);
+
+    .icon-bar {
+        background:$color-white;
+    }
+}
+.navbar-default{
+    @extend .reset-border;
+    @include border-radius(0);
+    background-color:$color-transparent;    
+    > *{
+        padding:0;
+    }
+}
+.nav{
+    > li{
+        > a{
+            
+        }
+    }
+}
+.nav.nav-tabs.nav-justified {
+    > li{
+        @media screen and (min-width:$screen-md){
+          position:static;  
+        }
+        > a {
+            text-transform:uppercase;
+            color:$blue-dark;
+            @include border-radius (0);
+            border:0;
+            &, &:hover, &:focus {
+                @media screen and (max-width:$screen-sm){
+                    @include responsive-nav-tab;
+                }
+            }
+            @media screen and (max-width:$screen-sm){
+                .caret{
+                    display:none;
+                }
+            }
+            @media screen and (min-width:$screen-md){
+                color: $color-text;
+                &:hover {
+                    @include active-style;
+                }
+            }
+        }
+        &.active,&.current_page_item{
+            a, a:focus, a:active {
+                @include active-style;
+                @media screen and (max-width:$screen-sm){
+                    border:0 !important; 
+                }
+                
+            }
+            a:hover{
+                background:$blue-middle;
+            }
+        }
+        &.open, &.active{
+            >a{
+                background:$blue;
+                color:white;
+
+                .caret{
+                    @include caret-right-style (5px,1em);
+
+                }
+            }
+        }
+    }
+}
+ul.dropdown-menu{
+    box-shadow: none;
+    @include border-radius (0);
+    > li > a {
+        white-space: normal;
+        color:$color-white;
+    }
+
+    @media screen and (max-width:$screen-sm){
+        display:none !important;
+    }
+    @media screen and (min-width:$screen-sm +1) and (max-width:$screen-md){
+        position:static;
+        float:none;
+        background:$color-transparent;
+        margin:0;
+        padding:0;
+        border:0;
+        li.open &, li.active &{
+            .dropdown-menu{
+                /*                display: block;*/
+            }
+        }
+        > li{
+            > a{
+                @include responsive-nav-tab;
+                padding-left:2em;
+                &:hover{
+                    @include active-style;
+                    background-color: $blue-middle;
+                }
+            }
+        }
+        li:hover > &{
+            display: block;
+        }
+    }
+    @media screen and (min-width:$screen-md){
+        position: static;
+        top: 2em;
+        left: 0;
+        z-index: 10;
+        float: none;
+        min-width: none;
+        background-color: $color-transparent;
+        border: 0;
+        border: 0;
+        border-radius: 0;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+
+        .nav-justified > li > &{
+            width:1170px;
+            position:absolute;
+            top:3em;
+            left:0;
+            background:$blue;
+            z-index:50;
+        }
+        
+    }
+        align-items:flex-start;
+        align-content:center;
+        margin:1em 0 0 0;
+        > li:first-child {
+            a {
+                    font-weight:400;
+                }
+        }
+        & .dropdown-menu{
+            @include flex-container;
+            flex-flow:column wrap;
+            width: 200px;
+            height:300px;
+            padding-top:1em;
+            > li{
+                > a {
+/*                    border-top:1px solid currentColor;*/
+                }
+            }
+            
+        }
+}
+
+.navbar-brand {
+    display:none;
+    .navbar-fixed-top &{
+        display:block;
+    }
+
+}
+
+
+/*** Mega Menu Hacks***/
+.nav-tabs.nav-justified > .dropdown > .dropdown-menu{
+    left:0;
+    > li{
+        font-weight:bold;
+        font-size: 16px;
+        .dropdown-menu li {
+            font-size:16px;
+            font-weight: normal;
+        }
+    }
+}
+ul.nav li.dropdown:hover > ul.dropdown-menu{
+    @include flex-container;
+}
+
+ul.nav .dropdown > .dropdown-menu .caret{
+    @include caret-down-style(4px);
+}

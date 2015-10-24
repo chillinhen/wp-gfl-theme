@@ -7,7 +7,7 @@
 	    $post = $post_object_01;
 	    setup_postdata($post);
 	    ?>
-    	<div class="col-md-4">
+    	<div class="col-sm-4">
 		<?php get_template_part('partials/article', get_post_format()); ?>
     	</div>
 	    <?php wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly  ?>
@@ -22,7 +22,7 @@
 	    $post = $post_object_02;
 	    setup_postdata($post);
 	    ?>
-    	<div class="col-md-4">
+    	<div class="col-sm-4">
 		<?php get_template_part('partials/article', get_post_format()); ?>
     	</div>
 	    <?php wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly ?>	
@@ -36,7 +36,7 @@
 	    $post = $post_object_03;
 	    setup_postdata($post);
 	    ?>
-    	<div class="col-md-4">
+    	<div class="col-sm-4">
 		<?php get_template_part('partials/article', get_post_format()); ?>
     	</div>
 	    <?php wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly  ?>

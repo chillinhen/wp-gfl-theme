@@ -1,22 +1,39 @@
-
-jQuery(document).ready(function($) {
+jQuery(document).ready(function ($) {
     //alert('hallo');
+    //
     //remove all lead classes
-    $('p').each(function(){
-        if($(this).hasClass('lead')){
+    $('p').each(function () {
+        if ($(this).hasClass('lead')) {
             $(this).removeClass('lead');
         }
     });
-    
+
     //add float to img attachments
-    $('div[id*="attachment_"]').each(function(){
-        if($(this).hasClass('alignleft')){
+    $('div[id*="attachment_"]').each(function () {
+        if ($(this).hasClass('alignleft')) {
             $(this).addClass('pull-left');
         }
-        if($(this).hasClass('alignright')){
+        if ($(this).hasClass('alignright')) {
             $(this).addClass('pull-right');
         }
     });
+
+    // elastic video 
+    $('article.format-video iframe').wrap("<div class='elastic-video'></div>");
+
+    //show special navs
+    $('a[title="call-to-action"]').each(function () {
+        $(this).addClass('call-to-action');
+    });
+
+    // fix the main menu on top 
+    if (window.matchMedia('(min-width: 768px)').matches) {
+        // justify the main menu
+        $('nav .navbar-default > .navbar-collapse > ul').removeClass('navbar-nav').addClass('nav-tabs').addClass('nav-justified');
+//    $('.current_page_item').parent('ul').parent('li').addClass('active');
+//    $('li.active').parent('ul').parent('li').addClass('active').parent('ul').parent('li').addClass('active');
+
+
     //Check to see if the window is top if not then display button
 	$(window).scroll(function(){
 		if ($(this).scrollTop() > 100) {
@@ -31,89 +48,38 @@ jQuery(document).ready(function($) {
 		$('html, body').animate({scrollTop : 0},800);
 		return false;
 	});
+        
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 450) {
+                $('.navbar')
+                        .addClass('navbar-fixed-top');
+                $('.navbar-brand').removeClass('hidden-lg');
 
+            } else {
+                $('.navbar')
+                        .removeClass('navbar-fixed-top');
+                $('.navbar-brand').removeClass('hidden-lg');
+            }
+        });
+    }
+    
+     
+         //give active-class to first carousel item
+    $('.carousel-inner').each(function () {
+        $(this).children('.item:first-child').addClass('active');
+    });
+    $('.carousel-indicators').each(function () {
+        $(this).children('li:first-child').addClass('active');
+    });
+  
+    // Responsive mobble test
+    if ($('body').hasClass('mobile')) {
+        //alert('ich bin mobile');
 
-    //place the brand
-    var brandHeight = $('#brand').height();
-    $('.row.brand [class*="col-"]').css('height',brandHeight);
+    }
+    else {
+        //alert('ich bin ein desktop');
+    }
 
-    // elastic video 
-    $('article.format-video iframe').wrap("<div class='elastic-video'></div>");
     
-    // justify the main menu
-    $('ul#menu-hauptmenu').removeClass('navbar-nav').addClass('nav-tabs').addClass('nav-justified');
-    $('.current_page_item').parent('ul').parent('li').addClass('active');
-    $('li.active').parent('ul').parent('li').addClass('active').parent('ul').parent('li').addClass('active');
-    
-    // show position of dropdown
-    //var menuWidth = $('ul#menu-hauptmenu').width();
-    //alert(menuWidth);
-    //$('ul#menu-hauptmenu').children('li').children('ul.dropdown-menu').css('width',menuWidth);;
-    
-//    var activeElement = $( "li.active" );
-//    var hoverElement = $('ul#menu-hauptmenu').children('li').hover();
-//    var position = activeElement.position();
-//    var hoverPosition = hoverElement.position();
-//    alert('left:'+position.left);
-//    activeElement.children('ul.dropdown-menu')
-//            .css(
-//                    'margin-left', -position.left,
-//                    'width', menuWidth
-//                    );
-//    hoverElement.children('ul.dropdown-menu')
-//            .css(
-//                    'margin-left', -position.left,
-//                    'width', menuWidth
-//                    );
-    
-    
-    //show special navs
-    $('a[title="call-to-action"]').each(function(){
-        $(this).addClass('call-to-action');
-    });
-    // fix the main menu on top 
-    $(window).scroll(function() {
-	if ($(this).scrollTop() > 450) {
-	    $('.navbar')
-		    .addClass('navbar-fixed-top');
-	    $('.navbar-brand').removeClass('hidden-lg');
-	    
-	} else {
-	    $('.navbar')
-		    .removeClass('navbar-fixed-top');
-		$('.navbar-brand').addClass('hidden-lg');
-	}
-    });
-    
-    $('#caroufredsel img').each(function(){
-	$(this).parent('a').wrap('<li></li>');
-    });
-    //Scrolled by user interaction
-    $('#caroufredsel').carouFredSel({
-	auto: false,
-	prev: '#prev2',
-	next: '#next2',
-	pagination: "#pager2",
-	mousewheel: true,
-	swipe: {
-	    onMouse: true,
-	    onTouch: true
-	}
-    });
-    
-    //give active-class to first carousel item
-    $('.carousel-inner').each(function() {
-	$(this).children('.item:first-child').addClass('active');
-    });
-    $('.carousel-indicators').each(function() {
-	$(this).children('li:first-child').addClass('active');
-    });
-
-var $container = $('#main-board');
-
-	$container.imagesLoaded(function() {
-	    $container.masonry({
-		itemSelector: '#tiles li'
-	    });
-	});
-    });
+});

@@ -25,6 +25,7 @@
 
                         <?php endwhile; ?></li>
                 </ul>
+                
             </div>
             <div id="paging" class="col-md-offset-5 col-md-2">
 

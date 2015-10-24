@@ -6,22 +6,17 @@
 <?php get_header(); ?>
 <div id="content" class="row">
     <div class="container">
-        <div id="main" class="col-md-12">
-            <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-                    <?php get_template_part('partials/article', 'page'); ?>
-                <?php endwhile;
-                wp_reset_postdata(); ?>		
-            <?php else : ?>
-<?php endif; ?>
 
-            <div id="main-board" class="col-md-12" role="pinboard">
                 <?php
                 $filter = get_post_type($post_id);
                 $temp = $wp_query;
                 $wp_query = null;
                 $wp_query = new WP_Query();
-                $wp_query->query('showposts=9&post_type=foerderer&paged=' . $paged);
+            $wp_query->query('showposts=9&post_type=foerderer&paged=' . $paged);
                 ?>
+            <?php wp_tag_cloud('orderby=name&taxonomy=sponsoren-filter&separator= | &flat&echo=true&topic_count_text_callback=default_topic_count_text'); ?>
+            <div id="main-board" class="col-md-12" role="pinboard">
+                	
                 <ul id="tiles">
                     <?php while ($wp_query->have_posts()) : $wp_query->the_post();
                         ?>
@@ -43,7 +38,7 @@
             $wp_query = null;
             $wp_query = $temp;  // Reset
             ?>
-        </div>
     </div>
+</div>
 </div>
 <?php get_footer(); ?>

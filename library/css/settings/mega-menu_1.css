@@ -1,0 +1,522 @@
+/* Headlines */
+/* Headlines */
+/* line 42, ../../scss/settings/typography.scss */
+h1, h2, h3, h4 {
+  font-family: "Lato", Helvetica, Arial, sans-serif;
+  color: #6196ca;
+  line-height: 1;
+  font-weight: 400;
+}
+
+/* line 45, ../../scss/settings/typography.scss */
+h1 {
+  font-size: 2em;
+  line-height: 1.2;
+  color: #00376c;
+}
+/* line 49, ../../scss/settings/typography.scss */
+.box article h1 {
+  font-size: 1em;
+  font-weight: bold;
+}
+
+/* line 54, ../../scss/settings/typography.scss */
+h2 {
+  font-size: 1em;
+}
+
+/* line 57, ../../scss/settings/typography.scss */
+h3 {
+  font-size: 1em;
+}
+
+/* line 61, ../../scss/settings/typography.scss */
+h4, h5, h6 {
+  font-size: 1em;
+}
+
+/* line 67, ../../scss/settings/typography.scss */
+p, .lead {
+  font-size: 15px;
+  line-height: 1;
+  /*    font-size:0.9375rem;*/
+  font-weight: normal;
+}
+
+/* line 73, ../../scss/settings/typography.scss */
+.kursiv {
+  font-style: italic;
+  font-size: 0px;
+  line-height: 15px;
+}
+
+/* Kleinerer Text */
+/* line 79, ../../scss/settings/typography.scss */
+.s {
+  font-size: 0.8em;
+}
+
+/* Absaetze */
+/* line 83, ../../scss/settings/typography.scss */
+p {
+  font-size: 15px;
+  font-size: 0.9375rem;
+  line-height: 1.45;
+}
+
+/* Headlines */
+/* Headlines */
+/* line 42, ../../scss/settings/typography.scss */
+h1, h2, h3, h4 {
+  font-family: "Lato", Helvetica, Arial, sans-serif;
+  color: #6196ca;
+  line-height: 1;
+  font-weight: 400;
+}
+
+/* line 45, ../../scss/settings/typography.scss */
+h1 {
+  font-size: 2em;
+  line-height: 1.2;
+  color: #00376c;
+}
+/* line 49, ../../scss/settings/typography.scss */
+.box article h1 {
+  font-size: 1em;
+  font-weight: bold;
+}
+
+/* line 54, ../../scss/settings/typography.scss */
+h2 {
+  font-size: 1em;
+}
+
+/* line 57, ../../scss/settings/typography.scss */
+h3 {
+  font-size: 1em;
+}
+
+/* line 61, ../../scss/settings/typography.scss */
+h4, h5, h6 {
+  font-size: 1em;
+}
+
+/* line 67, ../../scss/settings/typography.scss */
+p, .lead {
+  font-size: 15px;
+  line-height: 1;
+  /*    font-size:0.9375rem;*/
+  font-weight: normal;
+}
+
+/* line 73, ../../scss/settings/typography.scss */
+.kursiv {
+  font-style: italic;
+  font-size: 0px;
+  line-height: 15px;
+}
+
+/* Kleinerer Text */
+/* line 79, ../../scss/settings/typography.scss */
+.s {
+  font-size: 0.8em;
+}
+
+/* Absaetze */
+/* line 83, ../../scss/settings/typography.scss */
+p {
+  font-size: 15px;
+  font-size: 0.9375rem;
+  line-height: 1.45;
+}
+
+/* Mediaqueries breakpoints */
+/*** resets ***/
+/* line 14, ../../scss/settings/extensions.scss */
+.border-box {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 18, ../../scss/settings/extensions.scss */
+.reset-border, .navbar-toggle, .navbar-default {
+  border: 0;
+  border-color: transparent;
+}
+
+/* line 22, ../../scss/settings/extensions.scss */
+.foo-bar {
+  border-left: 1px solid red;
+  border-right: 1px solid red;
+}
+
+/**Sticky Footer***/
+/**** carousel****/
+@media screen and (max-width: 768px) {
+  /* line 46, ../../scss/settings/extensions.scss */
+  #header.move-up {
+    height: 150px;
+  }
+  /* line 50, ../../scss/settings/extensions.scss */
+  #header.move-up .logo img {
+    height: 125px;
+  }
+}
+
+/* line 58, ../../scss/settings/extensions.scss */
+.carousel-fade .carousel-inner {
+  position: relative;
+  height: inherit;
+  width: inherit;
+}
+/* line 62, ../../scss/settings/extensions.scss */
+.carousel-fade .carousel-inner .item {
+  transition-property: opacity;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+/* line 71, ../../scss/settings/extensions.scss */
+.carousel-fade .carousel-inner .item,
+.carousel-fade .carousel-inner .active.left,
+.carousel-fade .carousel-inner .active.right {
+  opacity: 0;
+}
+/* line 77, ../../scss/settings/extensions.scss */
+.carousel-fade .carousel-inner .active,
+.carousel-fade .carousel-inner .next.left,
+.carousel-fade .carousel-inner .prev.right {
+  opacity: 1;
+}
+/* line 84, ../../scss/settings/extensions.scss */
+.carousel-fade .carousel-inner .next,
+.carousel-fade .carousel-inner .prev,
+.carousel-fade .carousel-inner .active.left,
+.carousel-fade .carousel-inner .active.right {
+  left: 0;
+  transform: translate3d(0, 0, 0);
+}
+/* line 90, ../../scss/settings/extensions.scss */
+.carousel-fade .carousel-control {
+  z-index: 2;
+}
+
+/***Tables***/
+/***box attributes***/
+/**** Flexbox****/
+/*** Shadow ***/
+/* line 157, ../../scss/settings/extensions.scss */
+.shadow {
+  -webkit-box-shadow: 1px 1px 6px 2px rgba(0, 0, 0, 0);
+  box-shadow: 1px 1px 6px 2px rgba(0, 0, 0, 0);
+}
+
+/* line 161, ../../scss/settings/extensions.scss */
+.inset {
+  text-shadow: -1px -1px 0px #202020, 1px 1px 0px white;
+}
+
+/**** caret ****/
+/**** social media icons ****/
+/*** Fontawesome Icons ***/
+/*** Transitions ***/
+/* line 6, ../../scss/settings/shame.scss */
+#sfsi-widget-2 {
+  display: none;
+}
+
+/*** Mega Menu Hacks***/
+/* line 9, ../../scss/settings/shame.scss */
+.nav-tabs.nav-justified > .dropdown > .dropdown-menu {
+  left: 0;
+}
+/* line 11, ../../scss/settings/shame.scss */
+.nav-tabs.nav-justified > .dropdown > .dropdown-menu > li {
+  font-weight: bold;
+  font-size: 16px;
+}
+/* line 14, ../../scss/settings/shame.scss */
+.nav-tabs.nav-justified > .dropdown > .dropdown-menu > li .dropdown-menu li {
+  font-size: 16px;
+  font-weight: normal;
+}
+
+/* line 20, ../../scss/settings/shame.scss */
+ul.nav li.dropdown:hover > ul.dropdown-menu {
+  display: flex;
+  display: -webkit-flex;
+}
+
+/* line 24, ../../scss/settings/shame.scss */
+ul.nav .dropdown > .dropdown-menu .caret {
+  border-bottom-color: transparent;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-top-color: currentColor;
+  border-width: 4px;
+  border-style: solid;
+}
+
+/*** Meta Nav Hack ***/
+/* line 29, ../../scss/settings/shame.scss */
+#meta-nav {
+  display: flex;
+  display: -webkit-flex;
+  align-content: flex-end;
+}
+/* line 32, ../../scss/settings/shame.scss */
+#meta-nav * {
+  line-height: 1.4;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+/* line 37, ../../scss/settings/shame.scss */
+#meta-nav > div {
+  flex: 2;
+}
+/* line 40, ../../scss/settings/shame.scss */
+#meta-nav > .navbar-form {
+  flex: 1;
+  margin: 3px 0 0 0;
+}
+/* line 43, ../../scss/settings/shame.scss */
+#meta-nav > .navbar-form .form-group {
+  display: flex;
+  display: -webkit-flex;
+}
+/* line 45, ../../scss/settings/shame.scss */
+#meta-nav > .navbar-form .form-group > input {
+  flex: 3;
+  padding-left: 1em;
+}
+/* line 49, ../../scss/settings/shame.scss */
+#meta-nav > .navbar-form .form-group > i {
+  flex: 1;
+  padding-left: 1em;
+}
+/* line 55, ../../scss/settings/shame.scss */
+#meta-nav .navbar-nav {
+  font-size: 1em;
+}
+/* line 58, ../../scss/settings/shame.scss */
+#meta-nav .navbar-nav > li > a {
+  padding: 10px 12px;
+}
+
+/* line 25, ../../scss/settings/mega-menu_1.scss */
+.navbar-toggle {
+  background: #00376c;
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  z-index: 20;
+  float: none;
+  padding: .5em;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+}
+/* line 36, ../../scss/settings/mega-menu_1.scss */
+.navbar-toggle .icon-bar {
+  background: white;
+}
+
+/* line 40, ../../scss/settings/mega-menu_1.scss */
+.navbar-default {
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  background-color: transparent;
+}
+/* line 44, ../../scss/settings/mega-menu_1.scss */
+.navbar-default > * {
+  padding: 0;
+}
+
+@media screen and (min-width: 992px) {
+  /* line 56, ../../scss/settings/mega-menu_1.scss */
+  .nav.nav-tabs.nav-justified > li {
+    position: static;
+  }
+}
+/* line 60, ../../scss/settings/mega-menu_1.scss */
+.nav.nav-tabs.nav-justified > li > a {
+  text-transform: uppercase;
+  color: #00376c;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  border: 0;
+}
+@media screen and (max-width: 768px) {
+  /* line 65, ../../scss/settings/mega-menu_1.scss */
+  .nav.nav-tabs.nav-justified > li > a, .nav.nav-tabs.nav-justified > li > a:hover, .nav.nav-tabs.nav-justified > li > a:focus {
+    text-align: left;
+    color: white;
+    background: #00376c;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    padding: 1em;
+    margin: 1px 0 0 0;
+    word-wrap: break-word;
+    white-space: normal;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 768px) {
+  /* line 71, ../../scss/settings/mega-menu_1.scss */
+  .nav.nav-tabs.nav-justified > li > a .caret {
+    display: none;
+  }
+}
+@media screen and (min-width: 992px) {
+  /* line 60, ../../scss/settings/mega-menu_1.scss */
+  .nav.nav-tabs.nav-justified > li > a {
+    color: #333333;
+  }
+  /* line 77, ../../scss/settings/mega-menu_1.scss */
+  .nav.nav-tabs.nav-justified > li > a:hover {
+    background: #6196ca;
+    background-image: none !important;
+    color: white;
+  }
+}
+/* line 83, ../../scss/settings/mega-menu_1.scss */
+.nav.nav-tabs.nav-justified > li.active a, .nav.nav-tabs.nav-justified > li.active a:focus, .nav.nav-tabs.nav-justified > li.active a:active, .nav.nav-tabs.nav-justified > li.current_page_item a, .nav.nav-tabs.nav-justified > li.current_page_item a:focus, .nav.nav-tabs.nav-justified > li.current_page_item a:active {
+  background: #6196ca;
+  background-image: none !important;
+  color: white;
+}
+@media screen and (max-width: 768px) {
+  /* line 83, ../../scss/settings/mega-menu_1.scss */
+  .nav.nav-tabs.nav-justified > li.active a, .nav.nav-tabs.nav-justified > li.active a:focus, .nav.nav-tabs.nav-justified > li.active a:active, .nav.nav-tabs.nav-justified > li.current_page_item a, .nav.nav-tabs.nav-justified > li.current_page_item a:focus, .nav.nav-tabs.nav-justified > li.current_page_item a:active {
+    border: 0 !important;
+  }
+}
+/* line 90, ../../scss/settings/mega-menu_1.scss */
+.nav.nav-tabs.nav-justified > li.active a:hover, .nav.nav-tabs.nav-justified > li.current_page_item a:hover {
+  background: #94b8db;
+}
+/* line 95, ../../scss/settings/mega-menu_1.scss */
+.nav.nav-tabs.nav-justified > li.open > a, .nav.nav-tabs.nav-justified > li.active > a {
+  background: #6196ca;
+  color: white;
+}
+/* line 99, ../../scss/settings/mega-menu_1.scss */
+.nav.nav-tabs.nav-justified > li.open > a .caret, .nav.nav-tabs.nav-justified > li.active > a .caret {
+  border-bottom: 5px solid transparent;
+  border-left: 5px solid currentColor;
+  border-top: 5px solid transparent;
+  border-width: 5px 0 5px 5px;
+  padding-left: 1em;
+}
+
+/* line 107, ../../scss/settings/mega-menu_1.scss */
+ul.dropdown-menu {
+  box-shadow: none;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  align-items: flex-start;
+  align-content: center;
+  margin: 1em 0 0 0;
+}
+/* line 110, ../../scss/settings/mega-menu_1.scss */
+ul.dropdown-menu > li > a {
+  white-space: normal;
+  color: white;
+}
+@media screen and (max-width: 768px) {
+  /* line 107, ../../scss/settings/mega-menu_1.scss */
+  ul.dropdown-menu {
+    display: none !important;
+  }
+}
+@media screen and (min-width: 769px) and (max-width: 992px) {
+  /* line 107, ../../scss/settings/mega-menu_1.scss */
+  ul.dropdown-menu {
+    position: static;
+    float: none;
+    background: transparent;
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+  /* line 126, ../../scss/settings/mega-menu_1.scss */
+  li.open ul.dropdown-menu .dropdown-menu, li.active ul.dropdown-menu .dropdown-menu {
+    /*                display: block;*/
+  }
+  /* line 131, ../../scss/settings/mega-menu_1.scss */
+  ul.dropdown-menu > li > a {
+    text-align: left;
+    color: white;
+    background: #00376c;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    padding: 1em;
+    margin: 1px 0 0 0;
+    word-wrap: break-word;
+    white-space: normal;
+    width: 100%;
+    padding-left: 2em;
+  }
+  /* line 134, ../../scss/settings/mega-menu_1.scss */
+  ul.dropdown-menu > li > a:hover {
+    background: #6196ca;
+    background-image: none !important;
+    color: white;
+    background-color: #94b8db;
+  }
+  /* line 140, ../../scss/settings/mega-menu_1.scss */
+  li:hover > ul.dropdown-menu {
+    display: block;
+  }
+}
+@media screen and (min-width: 992px) {
+  /* line 107, ../../scss/settings/mega-menu_1.scss */
+  ul.dropdown-menu {
+    position: static;
+    top: 2em;
+    left: 0;
+    z-index: 10;
+    float: none;
+    min-width: none;
+    background-color: transparent;
+    border: 0;
+    border: 0;
+    border-radius: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+  /* line 158, ../../scss/settings/mega-menu_1.scss */
+  .nav-justified > li > ul.dropdown-menu {
+    width: 1170px;
+    position: absolute;
+    top: 3em;
+    left: 0;
+    background: #6196ca;
+    z-index: 50;
+  }
+}
+/* line 172, ../../scss/settings/mega-menu_1.scss */
+ul.dropdown-menu > li:first-child a {
+  font-weight: 400;
+}
+/* line 176, ../../scss/settings/mega-menu_1.scss */
+ul.dropdown-menu .dropdown-menu {
+  display: flex;
+  display: -webkit-flex;
+  flex-flow: column wrap;
+  width: 200px;
+  height: 300px;
+  padding-top: 1em;
+}
+/* line 183, ../../scss/settings/mega-menu_1.scss */
+ul.dropdown-menu .dropdown-menu > li > a {
+  /*                    border-top:1px solid currentColor;*/
+}
+
+/* line 191, ../../scss/settings/mega-menu_1.scss */
+.navbar-brand {
+  display: none;
+}
+/* line 193, ../../scss/settings/mega-menu_1.scss */
+.navbar-fixed-top .navbar-brand {
+  display: block;
+}
