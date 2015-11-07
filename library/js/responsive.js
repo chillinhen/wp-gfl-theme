@@ -12,7 +12,7 @@ jQuery(document).ready(function ($) {
             tapped = setTimeout(function () {
                 e.preventDefault();
                 //insert things you want to do when single tapped
-            }, 300);   //wait 300ms then run single click code
+            }, 100);   //wait 300ms then run single click code
         } else {    //tapped within 300ms of last tap. double tap
             clearTimeout(tapped); //stop single tap callback
             window.location.href = $(this).attr('href');

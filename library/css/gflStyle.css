@@ -2367,29 +2367,37 @@ aside > article:first-child {
   /* line 429, ../scss/gflStyle.scss */
   aside[id*="sidebar"] {
     padding-right: 0;
+    float: right;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  /* line 435, ../scss/gflStyle.scss */
+  #main {
+    float: left;
   }
 }
 
 /***** Page Styles ****/
-/* line 436, ../scss/gflStyle.scss */
+/* line 442, ../scss/gflStyle.scss */
 #page-links {
   border-top: 1px solid #cccccc;
   margin-top: 1em;
   padding: 1em 0;
   font-style: italic;
 }
-/* line 441, ../scss/gflStyle.scss */
+/* line 447, ../scss/gflStyle.scss */
 #page-links a {
   display: inline-block;
   font-weight: bold;
 }
-/* line 444, ../scss/gflStyle.scss */
+/* line 450, ../scss/gflStyle.scss */
 #page-links a:first-child {
   border: 0;
 }
 
 /** Video Styles **/
-/* line 451, ../scss/gflStyle.scss */
+/* line 457, ../scss/gflStyle.scss */
 .elastic-video {
   position: relative;
   padding-bottom: 55%;
@@ -2397,7 +2405,7 @@ aside > article:first-child {
   height: 0;
   overflow: hidden;
 }
-/* line 457, ../scss/gflStyle.scss */
+/* line 463, ../scss/gflStyle.scss */
 .elastic-video iframe {
   position: absolute;
   top: 0;
@@ -2409,12 +2417,12 @@ aside > article:first-child {
 /**
  * Grid container
  */
-/* line 469, ../scss/gflStyle.scss */
+/* line 475, ../scss/gflStyle.scss */
 #main-board {
   margin-top: 2em;
 }
 
-/* line 472, ../scss/gflStyle.scss */
+/* line 478, ../scss/gflStyle.scss */
 #tiles {
   list-style-type: none;
   position: relative;
@@ -2423,7 +2431,7 @@ aside > article:first-child {
   padding: 0;
 }
 @media screen and (max-width: 320px) {
-  /* line 472, ../scss/gflStyle.scss */
+  /* line 478, ../scss/gflStyle.scss */
   #tiles {
     -webkit-columns: 300px 1;
     -moz-columns: 300px 1;
@@ -2440,13 +2448,13 @@ aside > article:first-child {
   }
 }
 @media screen and (max-width: 768px) {
-  /* line 472, ../scss/gflStyle.scss */
+  /* line 478, ../scss/gflStyle.scss */
   #tiles {
     margin: 1em 0;
   }
 }
 @media screen and (min-width: 321px) and (max-width: 600px) {
-  /* line 472, ../scss/gflStyle.scss */
+  /* line 478, ../scss/gflStyle.scss */
   #tiles {
     -webkit-columns: 230px 2;
     -moz-columns: 230px 2;
@@ -2463,7 +2471,7 @@ aside > article:first-child {
   }
 }
 @media screen and (min-width: 601px) and (max-width: 768px) {
-  /* line 472, ../scss/gflStyle.scss */
+  /* line 478, ../scss/gflStyle.scss */
   #tiles {
     -webkit-columns: 300px 2;
     -moz-columns: 300px 2;
@@ -2480,7 +2488,7 @@ aside > article:first-child {
   }
 }
 @media screen and (min-width: 768px) {
-  /* line 472, ../scss/gflStyle.scss */
+  /* line 478, ../scss/gflStyle.scss */
   #tiles {
     -webkit-columns: 300px 3;
     -moz-columns: 300px 3;
@@ -2496,13 +2504,13 @@ aside > article:first-child {
     /* IE 10+ */
   }
 }
-/* line 493, ../scss/gflStyle.scss */
+/* line 499, ../scss/gflStyle.scss */
 #tiles > li {
   border: 1px solid #cccccc;
   padding: 10px;
   margin-bottom: 1em;
 }
-/* line 498, ../scss/gflStyle.scss */
+/* line 504, ../scss/gflStyle.scss */
 #tiles > li img {
   display: block;
   max-width: 100%;
@@ -2511,18 +2519,18 @@ aside > article:first-child {
 }
 
 /***** Carousel ****/
-/* line 511, ../scss/gflStyle.scss */
+/* line 517, ../scss/gflStyle.scss */
 .carousel .carousel-inner > .item {
   width: 100%;
   position: relative;
 }
-/* line 516, ../scss/gflStyle.scss */
+/* line 522, ../scss/gflStyle.scss */
 .carousel .carousel-indicators {
   top: 2em;
   bottom: auto;
   z-index: 9999;
 }
-/* line 521, ../scss/gflStyle.scss */
+/* line 527, ../scss/gflStyle.scss */
 .carousel .carousel-indicators li {
   width: 10px;
   height: 10px;
@@ -2531,12 +2539,12 @@ aside > article:first-child {
   margin: 0;
   overflow: hidden;
 }
-/* line 528, ../scss/gflStyle.scss */
+/* line 534, ../scss/gflStyle.scss */
 .carousel .carousel-indicators li.active {
   opacity: .8;
   margin: 0;
 }
-/* line 534, ../scss/gflStyle.scss */
+/* line 540, ../scss/gflStyle.scss */
 .carousel .carousel-control {
   height: auto;
   background-image: none;
@@ -2550,67 +2558,67 @@ aside > article:first-child {
 }
 
 @media screen and (max-width: 768px) {
-  /* line 547, ../scss/gflStyle.scss */
+  /* line 553, ../scss/gflStyle.scss */
   #carousel-top-fold .carousel-inner {
     height: 220px;
   }
 }
 @media screen and (min-width: 769px) and (max-width: 992px) {
-  /* line 547, ../scss/gflStyle.scss */
+  /* line 553, ../scss/gflStyle.scss */
   #carousel-top-fold .carousel-inner {
     height: 300px;
   }
 }
 @media screen and (min-width: 992px) {
-  /* line 547, ../scss/gflStyle.scss */
+  /* line 553, ../scss/gflStyle.scss */
   #carousel-top-fold .carousel-inner {
     height: 400px;
   }
 }
 @media screen and (max-width: 768px) {
-  /* line 549, ../scss/gflStyle.scss */
+  /* line 555, ../scss/gflStyle.scss */
   #carousel-top-fold .carousel-inner > .item {
     height: 220px;
   }
 }
 @media screen and (min-width: 769px) and (max-width: 992px) {
-  /* line 549, ../scss/gflStyle.scss */
+  /* line 555, ../scss/gflStyle.scss */
   #carousel-top-fold .carousel-inner > .item {
     height: 300px;
   }
 }
 @media screen and (min-width: 992px) {
-  /* line 549, ../scss/gflStyle.scss */
+  /* line 555, ../scss/gflStyle.scss */
   #carousel-top-fold .carousel-inner > .item {
     height: 400px;
   }
 }
 
-/* line 555, ../scss/gflStyle.scss */
+/* line 561, ../scss/gflStyle.scss */
 #carousel-top-fold {
   width: 100%;
   position: relative;
   /*        @extend .carousel-fade;*/
 }
 @media screen and (max-width: 768px) {
-  /* line 555, ../scss/gflStyle.scss */
+  /* line 561, ../scss/gflStyle.scss */
   #carousel-top-fold {
     height: 220px;
   }
 }
 @media screen and (min-width: 769px) and (max-width: 992px) {
-  /* line 555, ../scss/gflStyle.scss */
+  /* line 561, ../scss/gflStyle.scss */
   #carousel-top-fold {
     height: 300px;
   }
 }
 @media screen and (min-width: 992px) {
-  /* line 555, ../scss/gflStyle.scss */
+  /* line 561, ../scss/gflStyle.scss */
   #carousel-top-fold {
     height: 400px;
   }
 }
-/* line 560, ../scss/gflStyle.scss */
+/* line 566, ../scss/gflStyle.scss */
 #carousel-top-fold .carousel-caption {
   position: absolute;
   z-index: 10;
@@ -2619,39 +2627,39 @@ aside > article:first-child {
   top: 30%;
   padding: 0;
 }
-/* line 567, ../scss/gflStyle.scss */
+/* line 573, ../scss/gflStyle.scss */
 #carousel-top-fold .carousel-caption * {
   color: white;
 }
-/* line 570, ../scss/gflStyle.scss */
+/* line 576, ../scss/gflStyle.scss */
 #carousel-top-fold .carousel-caption blockquote {
   background-color: rgba(0, 55, 108, 0);
   padding-left: 50px;
 }
-/* line 574, ../scss/gflStyle.scss */
+/* line 580, ../scss/gflStyle.scss */
 #carousel-top-fold .carousel-caption blockquote p {
   text-align: left !important;
   font-size: 1.5em;
   text-shadow: 3px 3px rgba(0, 0, 0, 0.5);
 }
-/* line 579, ../scss/gflStyle.scss */
+/* line 585, ../scss/gflStyle.scss */
 #carousel-top-fold .carousel-caption blockquote cite {
   text-align: right !important;
 }
-/* line 582, ../scss/gflStyle.scss */
+/* line 588, ../scss/gflStyle.scss */
 #carousel-top-fold .carousel-caption blockquote:before, #carousel-top-fold .carousel-caption blockquote:after {
   font-size: 6em;
 }
-/* line 588, ../scss/gflStyle.scss */
+/* line 594, ../scss/gflStyle.scss */
 #carousel-top-fold .carousel-control {
   top: 30%;
   opacity: 0;
 }
-/* line 591, ../scss/gflStyle.scss */
+/* line 597, ../scss/gflStyle.scss */
 #carousel-top-fold .carousel-control, #carousel-top-fold .carousel-control:hover {
   color: white;
 }
-/* line 594, ../scss/gflStyle.scss */
+/* line 600, ../scss/gflStyle.scss */
 #carousel-top-fold .carousel-control:hover {
   -webkit-transition: opacity 200ms ease;
   -moz-transition: opacity 200ms ease;
@@ -2661,19 +2669,19 @@ aside > article:first-child {
   opacity: 1;
 }
 
-/* line 600, ../scss/gflStyle.scss */
+/* line 606, ../scss/gflStyle.scss */
 [id*="gallery-"] {
   height: 150px;
   overflow: hidden;
 }
-/* line 604, ../scss/gflStyle.scss */
+/* line 610, ../scss/gflStyle.scss */
 [id*="gallery-"] .item > .gallery-item {
   margin: 0 2em;
   border: 0;
   height: 150px;
   position: relative;
 }
-/* line 609, ../scss/gflStyle.scss */
+/* line 615, ../scss/gflStyle.scss */
 [id*="gallery-"] .item > .gallery-item .gallery-caption {
   font-size: small;
   position: absolute;
@@ -2688,65 +2696,65 @@ aside > article:first-child {
   width: 100%;
   word-wrap: break-word;
 }
-/* line 626, ../scss/gflStyle.scss */
+/* line 632, ../scss/gflStyle.scss */
 [id*="gallery-"] .carousel-control {
   top: 40%;
   width: auto;
 }
-/* line 629, ../scss/gflStyle.scss */
+/* line 635, ../scss/gflStyle.scss */
 [id*="gallery-"] .carousel-control.right {
   right: 1px;
 }
-/* line 632, ../scss/gflStyle.scss */
+/* line 638, ../scss/gflStyle.scss */
 [id*="gallery-"] .carousel-control.left {
   left: 1px;
 }
-/* line 636, ../scss/gflStyle.scss */
+/* line 642, ../scss/gflStyle.scss */
 [id*="gallery-"] .carousel-control, [id*="gallery-"] .carousel-control:hover {
   color: #6196ca;
 }
 
 /**** Headlines ***/
-/* line 642, ../scss/gflStyle.scss */
+/* line 648, ../scss/gflStyle.scss */
 .page-header {
   border: 0 !important;
   margin: 40px 0 20px;
   padding-bottom: 9px;
 }
-/* line 645, ../scss/gflStyle.scss */
+/* line 651, ../scss/gflStyle.scss */
 #main > article.page .page-header {
   margin-top: 0;
 }
 
-/* line 650, ../scss/gflStyle.scss */
+/* line 656, ../scss/gflStyle.scss */
 .teaser-header {
   border: 0;
   margin: 0 0 1em;
 }
 
 /**** Tags and Tag Cloud ****/
-/* line 657, ../scss/gflStyle.scss */
+/* line 663, ../scss/gflStyle.scss */
 #tag-cloud {
   border-width: 1px 0;
   border-style: solid;
   border-color: #cccccc;
   padding: .5em 0;
 }
-/* line 662, ../scss/gflStyle.scss */
+/* line 668, ../scss/gflStyle.scss */
 #tag-cloud a.label {
   background-color: transparent !important;
   font-weight: normal;
   line-height: 1.4;
   font-size: 1em !important;
 }
-/* line 667, ../scss/gflStyle.scss */
+/* line 673, ../scss/gflStyle.scss */
 #tag-cloud a.label:hover {
   color: inherit;
   opacity: .5;
 }
 
 /**** Bildungsticker *****/
-/* line 674, ../scss/gflStyle.scss */
+/* line 680, ../scss/gflStyle.scss */
 div#bildungsklick_ticker {
   overflow: none !important;
 }

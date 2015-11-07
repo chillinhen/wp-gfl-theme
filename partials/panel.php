@@ -7,7 +7,7 @@ $more = 0;
 <article id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?> role="article">
 
     <header>
-        <?php if ($teaser_01): echo 'aber hallo'; endif;?>
+      
 	<?php the_post_thumbnail('wpbs-featured'); ?>
 
 	<hgroup class="teaser-header">

@@ -9,7 +9,9 @@
         ?>
 
         <?php if (is_page() && $post->post_parent) : ?>
-
+            <aside id="sidebar1" class="col-md-4" role="complementary">
+                <?php get_sidebar('children'); ?> 
+            </aside> 
             <div id="main" class="col-md-8">
                 <!--This is a child-page.-->
                 <?php #get_template_part('partials/social','bookmarks');?>
@@ -22,16 +24,17 @@
                 <?php endif; ?>
 
             </div>
-            <aside id="sidebar1" class="col-md-4" role="complementary">
-                <?php get_sidebar('children'); ?> 
-            </aside>
+
 
 
         <?php elseif (is_page() && count($children) > 0) : ?>
-
+            <aside id="sidebar1" class="col-md-4" role="complementary">
+                <!-- panel loop -->
+                <?php get_sidebar('children'); ?>
+            </aside>
             <div id="main" class="col-md-8">
                 <!--This is a parent-page (with one or more children)-->
-  
+
                 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
                         <?php get_template_part('partials/article', 'page'); ?>
                     <?php endwhile; ?>	
@@ -40,13 +43,13 @@
                 <?php endif; ?>
             </div>
 
-            <aside id="sidebar1" class="col-md-4" role="complementary">
-                <!-- panel loop -->
-                <?php get_sidebar('children'); ?>
-            </aside>
+
 
         <?php else : ?>
+            <aside id="sidebar1" class="col-md-4" role="complementary">
+                <?php get_sidebar('articles'); ?>
 
+            </aside>
             <div id="main" class="col-md-8">
                 <!--This is a parent page without children.-->
                 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
@@ -56,10 +59,7 @@
                 <?php else : ?>
                 <?php endif; ?>
             </div>
-            <aside id="sidebar1" class="col-md-4" role="complementary">
-                <?php get_sidebar('articles'); ?>
 
-            </aside>
 
         <?php endif; ?>
         

@@ -32,7 +32,7 @@
         $teaser_01 = get_field('teaser_01');
         if ($teaser_01):
             ?>
-            <li role="teaser" class="featured">
+            <li role="teaser" class="sticky">
                 
                 <?php
                 // override $post
@@ -45,26 +45,38 @@
             <?php wp_reset_postdata(); ?>
             </li>
         <?php endif; ?>
-            <!--- Sticky --->
-                    <?php
-        $post_args = array(
-            	'posts_per_page' => 1,
-                'post__in' => get_option('sticky_posts'),
-                'ignore_sticky_posts' => 1,
-);
-        $stickyPost = new WP_Query($post_args);
-        $stickyPost->set('post_type', 'post');
-        ?>
-            <?php if ($stickyPost->have_posts()) : ?>
-            <li role="news" class="sticky">
-                <?php while ($stickyPost->have_posts()) : $stickyPost->the_post(); ?>
-                    <?php get_template_part('partials/panel', get_post_format()); ?>
-                    <?php
-                endwhile;
-                wp_reset_postdata();
-                ?>
+            <!--- Bildungsklick --->
+ 
+            <li role="news" class="featured" >
+                <article id="ticker" class='clearfix' role="article">
+
+                    <header>
+                        <hgroup class="teaser-header">
+                            <h2 class="single-title" itemprop="headline">
+                                <i class="fa fa-star"></i>
+                                <a>Bildungsklick</a>
+                            </h2>
+                        </hgroup>
+                    </header>
+                    <section>
+                        <script type="text/javascript">// <![CDATA[
+          BILDUNGSKLICK_COLOR_BORDER = '#ffffff';
+          BILDUNGSKLICK_COLOR_BG = '#ffffff';
+          BILDUNGSKLICK_COLOR_LINK = '#6196CA';
+          BILDUNGSKLICK_FONT_SIZE = '16';
+          BILDUNGSKLICK_ANZAHL_MELDUNGEN = '4';
+          BILDUNGSKLICK_TOPIC_NAME = 'gewalt-in-der-schule' + 'schule';
+          BILDUNGSKLICK_WIDTH = '320';
+        // ]]></script>
+                        <script src="http://rss.bildungsklick.de/ticker/bildungsnachrichten.js" type="text/javascript">// <![CDATA[
+
+                        // ]]></script>
+                        <div id="bildungsklick_fuss"><a href="http://bildungsklick.de" target="_blank">
+                                bildungsklick.de</a></div>
+                    </section>
+                </article>
             </li>
-    <?php endif; ?>
+
             <!--- Panels --->
     <?php
 //$parent = $post->ID;

@@ -1,44 +1,26 @@
-<?php
-	$post_object_01 = get_field('sidebar-artikel_01');
+<?php 
+$sidebar_articles = array();
+for ($label = 1; $label <= 3; $label++) :
+    $sidebar_articles[] = get_field('sidebar-artikel_0' . $label);
 
-	if ($post_object_01):
-
-	    // override $post
-	    $post = $post_object_01;
-        setup_postdata($post);
+endfor;
 ?>
-    	
-	<?php get_template_part('partials/article', get_post_format()); ?>
-    	
-	    <?php wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly  ?>
 
-	<?php endif; ?>
-	<?php
-	$post_object_02 = get_field('sidebar-artikel_02');
 
-	if ($post_object_02):
+<?php
 
-	    // override $post
-	    $post = $post_object_02;
-	    setup_postdata($post);
-	    ?>
-    	
-		<?php get_template_part('partials/article', get_post_format()); ?>
-    	
-	    <?php wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly ?>	
-	<?php endif; ?>
-	<?php
-	$post_object_03 = get_field('sidebar-artikel_03');
+foreach ($sidebar_articles as $post) :
+    if ($post) :
+        setup_postdata($post);
+        get_template_part('partials/article', get_post_format());
+    endif;
+    wp_reset_postdata();
+endforeach;
 
-	if ($post_object_03):
 
-	    // override $post
-	    $post = $post_object_03;
-	    setup_postdata($post);
-	    ?>
-    	
-		<?php get_template_part('partials/article', get_post_format()); ?>
-    	
-	    <?php wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly  ?>
-	<?php endif;
-	?>
+foreach ($sidebar_articles as $post) :
+    if (!($post)) :
+        get_sidebar();
+    endif;
+endforeach;
+?>

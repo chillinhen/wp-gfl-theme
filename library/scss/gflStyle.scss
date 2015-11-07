@@ -429,6 +429,12 @@ article {
 aside[id*="sidebar"]{
     @media screen and (min-width:$screen-md){
         padding-right:0;
+        float:right;
+    } 
+}
+#main{
+    @media screen and (min-width:$screen-md){
+        float:left;
     } 
 }
 /***** Page Styles ****/
