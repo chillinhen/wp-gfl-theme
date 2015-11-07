@@ -234,8 +234,8 @@ p {
 /*** Shadow ***/
 /* line 147, ../../scss/settings/extensions.scss */
 .shadow {
-  -webkit-box-shadow: 1px 1px 6px 2px rgba(0, 0, 0, 0.2);
-  box-shadow: 1px 1px 6px 2px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 1px 1px 6px 2px rgba(0, 0, 0, 0);
+  box-shadow: 1px 1px 6px 2px rgba(0, 0, 0, 0);
 }
 
 /* line 151, ../../scss/settings/extensions.scss */
@@ -298,24 +298,24 @@ p {
   padding: 10px 12px;
 }
 
-/* line 4, ../../scss/settings/top-menu.scss */
+/* line 3, ../../scss/settings/top-menu.scss */
 .navbar-fixed-top {
   /*** ToDo: hier besser Flexbox ***/
 }
-/* line 5, ../../scss/settings/top-menu.scss */
+/* line 4, ../../scss/settings/top-menu.scss */
 .navbar-fixed-top.navbar-default {
   background: #00376c;
   height: 44px;
 }
-/* line 8, ../../scss/settings/top-menu.scss */
+/* line 7, ../../scss/settings/top-menu.scss */
 .navbar-fixed-top.navbar-default, .navbar-fixed-top.navbar-default * {
   border-bottom: 0 !important;
 }
-/* line 11, ../../scss/settings/top-menu.scss */
+/* line 10, ../../scss/settings/top-menu.scss */
 .navbar-fixed-top.navbar-default *, .navbar-fixed-top.navbar-default a {
   color: white !important;
 }
-/* line 19, ../../scss/settings/top-menu.scss */
+/* line 18, ../../scss/settings/top-menu.scss */
 .navbar-fixed-top .nav-tabs.nav-justified > li.active > a {
   background: #6196ca;
   color: white !important;
@@ -324,21 +324,25 @@ p {
   border-radius: 0;
 }
 /* line 25, ../../scss/settings/top-menu.scss */
+.navbar-fixed-top .nav-tabs.nav-justified > li.active > a:hover {
+  border: 0 !important;
+}
+/* line 28, ../../scss/settings/top-menu.scss */
 .navbar-fixed-top .nav-tabs.nav-justified > li.active > a > .caret {
   color: white !important;
 }
-/* line 35, ../../scss/settings/top-menu.scss */
+/* line 38, ../../scss/settings/top-menu.scss */
 .navbar-fixed-top > #main-nav {
   margin: 0px auto;
   padding-top: 0;
 }
 @media screen and (min-width: 992px) {
-  /* line 35, ../../scss/settings/top-menu.scss */
+  /* line 38, ../../scss/settings/top-menu.scss */
   .navbar-fixed-top > #main-nav {
     width: 1170px;
   }
 }
-/* line 40, ../../scss/settings/top-menu.scss */
+/* line 43, ../../scss/settings/top-menu.scss */
 .navbar-fixed-top .navbar-brand {
   background: url("../img/Logo.jpg") no-repeat scroll 50% 15% transparent;
   text-indent: -800px;
@@ -349,11 +353,11 @@ p {
   height: 100px;
   position: absolute;
 }
-/* line 50, ../../scss/settings/top-menu.scss */
+/* line 53, ../../scss/settings/top-menu.scss */
 .navbar-fixed-top ul.nav {
   margin-left: 100px;
 }
-/* line 52, ../../scss/settings/top-menu.scss */
+/* line 55, ../../scss/settings/top-menu.scss */
 .navbar-fixed-top ul.nav.nav-tabs.nav-justified {
   width: auto;
 }

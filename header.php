@@ -9,8 +9,11 @@
     <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<title><?php wp_title('|', true, 'right'); ?></title>	
+	<title><?php echo get_bloginfo('name'); ?><?php wp_title('|', true, 'left'); ?></title>	
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="<?php bloginfo('title'); ?><small><?php echo get_post_meta($post->ID, 'custom_tagline' , true);?>" />
+	<?php if (is_front_page()) : ?><?php endif ?>
+	<meta name="keywords" content="<?php if (is_front_page()) : the_field('keywords'); endif ?>"/>
 
 	<!-- media-queries.js (fallback) -->
 	<!--[if lt IE 9]>

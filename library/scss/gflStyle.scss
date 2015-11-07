@@ -34,7 +34,8 @@ html {
 }
 body {
     /* Margin bottom by footer height */
-    margin-bottom: $footer-height;
+	margin-bottom: $footer-height;
+	
     .custom-background{
         background-size: 80% auto;
         background-position: top right !important;
@@ -218,7 +219,7 @@ LAYOUT
                 display: block;
                 @include carouselHeight;
                 left: 0;
-                bottom: -1em;
+                bottom: 0;
                 position: absolute;
                 width: 100%;
                 z-index: 18;
