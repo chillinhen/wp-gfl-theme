@@ -65,7 +65,7 @@
           BILDUNGSKLICK_COLOR_LINK = '#6196CA';
           BILDUNGSKLICK_FONT_SIZE = '16';
           BILDUNGSKLICK_ANZAHL_MELDUNGEN = '4';
-          BILDUNGSKLICK_TOPIC_NAME = 'gewalt-in-der-schule' + 'schule';
+          BILDUNGSKLICK_TOPIC_NAME = 'gewalt-in-der-schule';
           BILDUNGSKLICK_WIDTH = '320';
         // ]]></script>
                         <script src="http://rss.bildungsklick.de/ticker/bildungsnachrichten.js" type="text/javascript">// <![CDATA[

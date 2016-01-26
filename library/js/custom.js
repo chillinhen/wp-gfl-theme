@@ -1,6 +1,5 @@
 jQuery(document).ready(function ($) {
-    //alert('hallo');
-    //
+
     //remove all lead classes
     $('p').each(function () {
         if ($(this).hasClass('lead')) {
@@ -82,6 +81,15 @@ jQuery(document).ready(function ($) {
         // Or, hide them
         $("img").error(function(){
                 $(this).hide();
+        });
+        
+        //disable carousel controls if there is only one item
+        $('.carousel').each(function () {
+            //
+            if ($(this).children('.carousel-inner').children('.item').length === 1) {
+                $(this).children('.carousel-indicators').remove();
+                $(this).children('.carousel-control').remove();
+            }
         });
 
     

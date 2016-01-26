@@ -467,7 +467,7 @@ p {
 -------------------------------------------------- */
 /* line 7, ../../scss/settings/globals.scss */
 html, body {
-  font-size: 100%;
+  font-size: 14px;
 }
 
 /* line 10, ../../scss/settings/globals.scss */
@@ -500,6 +500,8 @@ b, .bold {
 /* line 27, ../../scss/settings/globals.scss */
 img, a img {
   border: 0;
+  max-width: 100%;
+  height: auto;
 }
 
 /*** Tables ***/
@@ -538,31 +540,31 @@ table table tbody tr:nth-child(odd) th, table table tbody tr:nth-child(odd) td, 
 }
 
 /*** Forms ***/
-/* line 37, ../../scss/settings/globals.scss */
+/* line 39, ../../scss/settings/globals.scss */
 #s.form-control {
   /*    width: 70%;
       margin:0 5%;*/
 }
 
-/* line 42, ../../scss/settings/globals.scss */
+/* line 44, ../../scss/settings/globals.scss */
 #main form.wpcf7-form {
   width: 70%;
 }
-/* line 45, ../../scss/settings/globals.scss */
+/* line 47, ../../scss/settings/globals.scss */
 aside form.wpcf7-form {
   background: #bad1e8;
   padding: 1em;
 }
 
-/* line 50, ../../scss/settings/globals.scss */
+/* line 52, ../../scss/settings/globals.scss */
 .form-group {
   margin-bottom: 1em;
 }
-/* line 52, ../../scss/settings/globals.scss */
+/* line 54, ../../scss/settings/globals.scss */
 .form-group label {
   display: none;
 }
-/* line 55, ../../scss/settings/globals.scss */
+/* line 57, ../../scss/settings/globals.scss */
 .form-group .form-control {
   -webkit-border-radius: 0;
   border-radius: 0;
@@ -573,36 +575,36 @@ aside form.wpcf7-form {
 }
 
 /**** other ****/
-/* line 65, ../../scss/settings/globals.scss */
+/* line 67, ../../scss/settings/globals.scss */
 blockquote {
   margin: 1em 10px;
   padding: .5em 10px;
   quotes: "\201C""\201D""\2018""\2019";
 }
-/* line 70, ../../scss/settings/globals.scss */
+/* line 72, ../../scss/settings/globals.scss */
 blockquote:before, blockquote:after {
   font-size: 3em;
   line-height: 0.1em;
   vertical-align: -0.4em;
   opacity: 1;
 }
-/* line 76, ../../scss/settings/globals.scss */
+/* line 78, ../../scss/settings/globals.scss */
 blockquote:before {
   content: open-quote;
   float: left;
 }
-/* line 80, ../../scss/settings/globals.scss */
+/* line 82, ../../scss/settings/globals.scss */
 blockquote:after {
   content: close-quote;
   float: right;
 }
 
-/* line 86, ../../scss/settings/globals.scss */
+/* line 88, ../../scss/settings/globals.scss */
 a.btn-primary {
   color: white !important;
 }
 
-/* line 90, ../../scss/settings/globals.scss */
+/* line 92, ../../scss/settings/globals.scss */
 .scroll-to-top {
   background: #00376c;
   border-radius: 4px;
@@ -617,7 +619,7 @@ a.btn-primary {
   transition: background-color 0.1s linear 0s;
   z-index: 9999;
 }
-/* line 103, ../../scss/settings/globals.scss */
+/* line 105, ../../scss/settings/globals.scss */
 .scroll-to-top:hover {
   background: #00376c;
   opacity: 0.8;
@@ -626,26 +628,26 @@ a.btn-primary {
 /* ----------------------------*/
 /* CUSTOM CLASSES */
 /* ----------------------------*/
-/* line 112, ../../scss/settings/globals.scss */
+/* line 114, ../../scss/settings/globals.scss */
 .lead {
   font-size: 1em;
   font-size: inherit;
   font-weight: normal;
 }
 
-/* line 117, ../../scss/settings/globals.scss */
+/* line 119, ../../scss/settings/globals.scss */
 .kursiv {
   font-style: italic;
   font-size: 11px;
   line-height: 19px;
 }
 
-/* line 123, ../../scss/settings/globals.scss */
+/* line 125, ../../scss/settings/globals.scss */
 .inset {
   text-shadow: -1px -1px 0px #202020, 1px 1px 0px white;
 }
 
-/* line 125, ../../scss/settings/globals.scss */
+/* line 127, ../../scss/settings/globals.scss */
 .tags a {
   color: #00376c;
   /*    font-weight: normal;
@@ -656,21 +658,21 @@ a.btn-primary {
   border-radius: 0;
   padding: 0 1em;
 }
-/* line 133, ../../scss/settings/globals.scss */
+/* line 135, ../../scss/settings/globals.scss */
 .tags a:hover, .tags a:focus, .tags a[href]:hover, .tags a[href]:focus {
   color: white;
   background: #00376c;
   opacity: .5;
 }
 
-/* line 139, ../../scss/settings/globals.scss */
+/* line 141, ../../scss/settings/globals.scss */
 .shadow {
-  -webkit-box-shadow: 1px 1px 6px 2px rgba(0, 0, 0, 0.2);
-  box-shadow: 1px 1px 6px 2px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 1px 1px 6px 2px rgba(0, 0, 0, 0);
+  box-shadow: 1px 1px 6px 2px rgba(0, 0, 0, 0);
 }
 
 /****** Images ****/
-/* line 151, ../../scss/settings/globals.scss */
+/* line 153, ../../scss/settings/globals.scss */
 [class*="panel"] > img,
 [class*="col-"] > img,
 .item > img,
@@ -680,7 +682,7 @@ a.btn-primary {
   height: auto;
 }
 
-/* line 155, ../../scss/settings/globals.scss */
+/* line 157, ../../scss/settings/globals.scss */
 .thumbnail {
   overflow: hidden;
   margin: 0;
@@ -688,20 +690,24 @@ a.btn-primary {
   -webkit-border-radius: 0;
   border-radius: 0;
 }
+/* line 160, ../../scss/settings/globals.scss */
+.thumbnail[class*="col-"] {
+  border: 0 !important;
+}
 @media screen and (max-width: 768px) {
-  /* line 158, ../../scss/settings/globals.scss */
+  /* line 160, ../../scss/settings/globals.scss */
   .thumbnail[class*="col-"] {
     height: 200px;
     margin-bottom: 2em;
   }
 }
 @media screen and (min-width: 769px) {
-  /* line 158, ../../scss/settings/globals.scss */
+  /* line 160, ../../scss/settings/globals.scss */
   .thumbnail[class*="col-"] {
     margin-right: 1em;
   }
 }
-/* line 167, ../../scss/settings/globals.scss */
+/* line 170, ../../scss/settings/globals.scss */
 aside .thumbnail {
   border-width: 0.5em 0 1em 0;
   border-style: solid;

@@ -5,7 +5,7 @@
 /* Globals
 -------------------------------------------------- */
 html, body {
-    font-size:100%;
+    font-size:14px;
 }
 body {
     width: 100%;
@@ -26,6 +26,8 @@ b,.bold{
 }
 img, a img{
     border:0;
+    max-width: 100%;
+    height: auto;
 }
 
 /*** Tables ***/
@@ -156,6 +158,7 @@ a.btn-primary{
 
     overflow: hidden;
     &[class*="col-"]{
+    	border: 0 !important;
         @media screen and (max-width:$screen-sm){
             height: 200px;           
             margin-bottom: 2em;

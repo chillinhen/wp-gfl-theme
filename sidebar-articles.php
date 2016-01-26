@@ -12,7 +12,7 @@ endfor;
 foreach ($sidebar_articles as $post) :
     if ($post) :
         setup_postdata($post);
-        get_template_part('partials/article', get_post_format());
+        get_template_part('partials/article',get_post_format());
     endif;
     wp_reset_postdata();
 endforeach;

@@ -10,8 +10,12 @@
 
         <?php if (is_page() && $post->post_parent) : ?>
             <aside id="sidebar1" class="col-md-4" role="complementary">
+            	<?php if ( has_post_thumbnail() ) : ?>
+            		<?php the_post_thumbnail('wpbs-featured'); ?>
+            	<?php endif; ?> 
                 <?php get_sidebar('children'); ?> 
-            </aside> 
+            </aside>
+
             <div id="main" class="col-md-8">
                 <!--This is a child-page.-->
                 <?php #get_template_part('partials/social','bookmarks');?>
@@ -30,8 +34,12 @@
         <?php elseif (is_page() && count($children) > 0) : ?>
             <aside id="sidebar1" class="col-md-4" role="complementary">
                 <!-- panel loop -->
+                <?php if ( has_post_thumbnail() ) : ?>
+                	<?php the_post_thumbnail('wpbs-featured'); ?>
+                <?php endif; ?> 
                 <?php get_sidebar('children'); ?>
             </aside>
+
             <div id="main" class="col-md-8">
                 <!--This is a parent-page (with one or more children)-->
 
@@ -44,12 +52,12 @@
             </div>
 
 
-
         <?php else : ?>
             <aside id="sidebar1" class="col-md-4" role="complementary">
                 <?php get_sidebar('articles'); ?>
 
             </aside>
+
             <div id="main" class="col-md-8">
                 <!--This is a parent page without children.-->
                 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
@@ -62,7 +70,6 @@
 
 
         <?php endif; ?>
-        
         <!-- is there a horizontal gfallery ??? -->
         <?php $post_object = get_field('gallery-horizontal'); ?>
         <?php

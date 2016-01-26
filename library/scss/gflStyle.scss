@@ -219,7 +219,7 @@ LAYOUT
                 display: block;
                 @include carouselHeight;
                 left: 0;
-                bottom: 0;
+                bottom: -50px;
                 position: absolute;
                 width: 100%;
                 z-index: 18;
@@ -284,14 +284,16 @@ LAYOUT
 /*** breadcrumb***/
 
 #breadcrumb {
-    font-size: smaller;
-    font-style: italic;
-    margin-top:2em;
-    text-align: right;
-    border-bottom:1px solid $color-border;
-    margin-bottom:2em;
-    padding:2em;
     .trail-browse{display: none;}
+    .breadcrumbs {
+	    font-size: smaller;
+	    font-style: italic;
+    	margin-top:2em;
+    	text-align: right;
+    	border-bottom:1px solid $color-border;
+    	margin-bottom:2em;
+    	padding:2em;
+    }
 }
 
 /*** Content ***/
@@ -323,6 +325,7 @@ section[role="panels"] [class*='col-'] {
         li {
             list-style: none; 
             margin-left: 0;
+            margin-bottom: 1em;
         }  
     }
 
@@ -395,7 +398,6 @@ article {
         > footer{
             display:none;
         }
-
         .article-thumbnail.thumbnail-style > .item{
             overflow:hidden;
             display: block;
@@ -427,16 +429,17 @@ article {
 /*article.category-news div.tags {
     flex:3;
 }*/
+
+#main{
+    @media screen and (min-width:$screen-md){
+        float:left;
+    }
+}
 aside[id*="sidebar"]{
     @media screen and (min-width:$screen-md){
         padding-right:0;
         float:right;
-    } 
-}
-#main{
-    @media screen and (min-width:$screen-md){
-        float:left;
-    } 
+        }
 }
 /***** Page Styles ****/
 
