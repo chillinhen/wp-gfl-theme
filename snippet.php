@@ -1,239 +1,40 @@
-<?php
 
-/*
-  Plugin Name: my Customs Posts
-  Description: seitenspezifische Custom Posts
- */
+<?php get_header(); ?>
+<div id="content" class="row">
+    <div class="container">
 
-//create custom posts
+                <?php
+                $filter = get_post_type($post_id);
+                $temp = $wp_query;
+                $wp_query = null;
+                $wp_query = new WP_Query();
+            $wp_query->query('showposts=9&post_type=foerderder&paged=' . $paged);
+                ?>
+            <?php wp_tag_cloud('orderby=name&taxonomy=sponsoren-filter&separator= | &flat&echo=true&topic_count_text_callback=default_topic_count_text'); ?>
+            <div id="main-board" class="col-md-12" role="pinboard">
+                	
+                <ul id="tiles">
+                    <?php while ($wp_query->have_posts()) : $wp_query->the_post();
+                        ?>
 
-//Medienbeiträge
-add_action('init', 'my_custom_post_medienbeitrage');
-function my_custom_post_medienbeitrage() {
-register_post_type('medienbeitrage', array(
-'label' => 'Medienbeiträge',
-'description' => '',
-'public' => true,
-'show_ui' => true,
-'show_in_menu' => true,
-'capability_type' => 'post',
-'map_meta_cap' => true,
-'hierarchical' => false,
-'rewrite' => array('slug' => 'medienbeitrage', 'with_front' => true),
-'query_var' => true,
-'supports' => array('title','editor','excerpt','trackbacks','custom-fields','thumbnail','author','page-attributes','post-formats'),
-'taxonomies' => array('category','post_tag'),
-'labels' => array (
-  'name' => 'Medienbeiträge',
-  'singular_name' => 'Medienbeitrag',
-  'menu_name' => 'Medienbeiträge',
-  'add_new' => 'Add Medienbeitrag',
-  'add_new_item' => 'Add New Medienbeitrag',
-  'edit' => 'Edit',
-  'edit_item' => 'Edit Medienbeitrag',
-  'new_item' => 'New Medienbeitrag',
-  'view' => 'View Medienbeitrag',
-  'view_item' => 'View Medienbeitrag',
-  'search_items' => 'Search Medienbeiträge',
-  'not_found' => 'No Medienbeiträge Found',
-  'not_found_in_trash' => 'No Medienbeiträge Found in Trash',
-  'parent' => 'Parent Medienbeitrag',
-)
-) ); }
+                        <li> <?php get_template_part('partials/panel-article', get_post_format()); ?>
 
-//Presse
-add_action('init', 'my_custom_post_presse');
-function my_custom_post_presse() {
-register_post_type('presse', array(
-'label' => 'Presse',
-'description' => '',
-'public' => true,
-'show_ui' => true,
-'show_in_menu' => true,
-'capability_type' => 'post',
-'map_meta_cap' => true,
-'hierarchical' => false,
-'rewrite' => array('slug' => 'presse', 'with_front' => true),
-'query_var' => true,
-'supports' => array('title','editor','excerpt','trackbacks','custom-fields','comments','revisions','thumbnail','author','page-attributes','post-formats'),
-'taxonomies' => array('category','post_tag'),
-'labels' => array (
-  'name' => 'Presse',
-  'singular_name' => 'Presseartikel',
-  'menu_name' => 'Presse',
-  'add_new' => 'Add Presseartikel',
-  'add_new_item' => 'Add New Presseartikel',
-  'edit' => 'Edit',
-  'edit_item' => 'Edit Presseartikel',
-  'new_item' => 'New Presseartikel',
-  'view' => 'View Presseartikel',
-  'view_item' => 'View Presseartikel',
-  'search_items' => 'Search Presse',
-  'not_found' => 'No Presse Found',
-  'not_found_in_trash' => 'No Presse Found in Trash',
-  'parent' => 'Parent Presseartikel',
-)
-) ); 
-}
+<?php endwhile; ?></li>
+                </ul>
+            </div>
+            <div id="paging" class="col-md-offset-5 col-md-2">
 
-//Pressefilter
-add_action('init', 'my_custom_tax_pressefilter');
-function my_custom_tax_pressefilter() {
-register_taxonomy( 'pressefilter',array (
-  0 => 'presse',
-),
-array( 'hierarchical' => false,
-	'label' => 'Pressefilter',
-	'show_ui' => true,
-	'query_var' => true,
-	'show_admin_column' => true,
-	'labels' => array (
-  'search_items' => 'Filter',
-  'popular_items' => '',
-  'all_items' => '',
-  'parent_item' => '',
-  'parent_item_colon' => '',
-  'edit_item' => '',
-  'update_item' => '',
-  'add_new_item' => '',
-  'new_item_name' => '',
-  'separate_items_with_commas' => '',
-  'add_or_remove_items' => '',
-  'choose_from_most_used' => '',
-)
-) ); 
-}
+                <nav>
+                    <span class="pull-left"><?php previous_posts_link('<i class="fa fa-caret-left"></i> Newer') ?></span>
+                    <span class="pull-right"><?php next_posts_link('Older <i class="fa fa-caret-right"></i>') ?></span>
+                </nav>
+            </div>
 
-//Sponsoren
-add_action('init', 'my_custom_post_sponsoren');
-function my_custom_post_sponsoren() {
-register_post_type('sponsoren', array(
-'label' => 'Sponsoren',
-'description' => '',
-'public' => true,
-'show_ui' => true,
-'show_in_menu' => true,
-'capability_type' => 'post',
-'map_meta_cap' => true,
-'hierarchical' => false,
-'rewrite' => array('slug' => 'sponsoren', 'with_front' => true),
-'query_var' => true,
-'supports' => array('title','editor','excerpt','trackbacks','custom-fields','comments','revisions','thumbnail','author','page-attributes','post-formats'),
-'labels' => array (
-  'name' => 'Sponsoren',
-  'singular_name' => 'Sponsor',
-  'menu_name' => 'Sponsoren',
-  'add_new' => 'Add Sponsor',
-  'add_new_item' => 'Add New Sponsor',
-  'edit' => 'Edit',
-  'edit_item' => 'Edit Sponsor',
-  'new_item' => 'New Sponsor',
-  'view' => 'View Sponsor',
-  'view_item' => 'View Sponsor',
-  'search_items' => 'Search Sponsoren',
-  'not_found' => 'No Sponsoren Found',
-  'not_found_in_trash' => 'No Sponsoren Found in Trash',
-  'parent' => 'Parent Sponsor',
-)
-) ); }
-
-//Sponsorenfilter
-add_action('init', 'my_custom_tax_sponsoren_filter');
-function my_custom_tax_sponsoren_filter() {
-register_taxonomy( 'sponsoren-filter',array (
-  0 => 'sponsoren',
-),
-array( 'hierarchical' => true,
-	'label' => 'Sponsoren-Filter',
-	'show_ui' => true,
-	'query_var' => true,
-	'show_admin_column' => true,
-	'labels' => array (
-  'search_items' => '',
-  'popular_items' => '',
-  'all_items' => '',
-  'parent_item' => '',
-  'parent_item_colon' => '',
-  'edit_item' => '',
-  'update_item' => '',
-  'add_new_item' => '',
-  'new_item_name' => '',
-  'separate_items_with_commas' => '',
-  'add_or_remove_items' => '',
-  'choose_from_most_used' => '',
-)
-) ); 
-}
-
-//Carousel
-add_action('init', 'my_custom_post_carousel_item');
-function my_custom_post_carousel_item() {
-register_post_type('carousel-item', array(
-'label' => 'Carousel',
-'description' => '',
-'public' => true,
-'show_ui' => true,
-'show_in_menu' => true,
-'capability_type' => 'post',
-'map_meta_cap' => true,
-'hierarchical' => false,
-'rewrite' => array('slug' => 'carousel-item', 'with_front' => true),
-'query_var' => true,
-'supports' => array('title','editor','custom-fields','comments','revisions','thumbnail','author'),
-'taxonomies' => array('category','post_tag'),
-'labels' => array (
-  'name' => 'Carousel',
-  'singular_name' => 'Carousel Item',
-  'menu_name' => 'Carousel',
-  'add_new' => 'Add Carousel Item',
-  'add_new_item' => 'Add New Carousel Item',
-  'edit' => 'Edit',
-  'edit_item' => 'Edit Carousel Item',
-  'new_item' => 'New Carousel Item',
-  'view' => 'View Carousel Item',
-  'view_item' => 'View Carousel Item',
-  'search_items' => 'Search Carousel',
-  'not_found' => 'No Carousel Found',
-  'not_found_in_trash' => 'No Carousel Found in Trash',
-  'parent' => 'Parent Carousel Item',
-)
-) ); }
-
-//Banner
-add_action('init', 'my_custom_post_banner_item');
-function my_custom_post_banner_item() {
-register_post_type('banner-item', array(
-'label' => 'Banner',
-'description' => '',
-'public' => true,
-'show_ui' => true,
-'show_in_menu' => true,
-'capability_type' => 'post',
-'map_meta_cap' => true,
-'hierarchical' => false,
-'rewrite' => array('slug' => 'banner-item', 'with_front' => true),
-'query_var' => true,
-'supports' => array('title','revisions','thumbnail','author'),
-'taxonomies' => array('category','post_tag'),
-'labels' => array (
-  'name' => 'Banner',
-  'singular_name' => 'Banner Item',
-  'menu_name' => 'Banner',
-  'add_new' => 'Add Banner Item',
-  'add_new_item' => 'Add New Banner Item',
-  'edit' => 'Edit',
-  'edit_item' => 'Edit Banner Item',
-  'new_item' => 'New Banner Item',
-  'view' => 'View Banner Item',
-  'view_item' => 'View Banner Item',
-  'search_items' => 'Search Banner',
-  'not_found' => 'No Banner Found',
-  'not_found_in_trash' => 'No Banner Found in Trash',
-  'parent' => 'Parent Banner Item',
-)
-) );
-flush_rewrite_rules();
-
-}
-
-?>
+            <?php
+            $wp_query = null;
+            $wp_query = $temp;  // Reset
+            ?>
+    </div>
+</div>
+</div>
+<?php get_footer(); ?>

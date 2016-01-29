@@ -6,7 +6,6 @@
 <?php get_header(); ?>
 <div id="content" class="clearfix row">
     <div class="container">
-        
             <?php
             $filter = get_post_type( $post_id );
             $temp = $wp_query;
@@ -21,7 +20,7 @@
                     <?php while ($wp_query->have_posts()) : $wp_query->the_post();
                         ?>
 
-                        <li> <?php get_template_part('partials/panel-article', get_post_format()); ?>
+                        <li> <?php get_template_part('partials/presse-article', get_post_format()); ?>
 
                         <?php endwhile; ?></li>
                 </ul>
