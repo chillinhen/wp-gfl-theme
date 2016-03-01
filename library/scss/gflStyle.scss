@@ -669,15 +669,28 @@ aside[id*="sidebar"]{
     border-style: solid;
     border-color: $color-border;
     padding:.5em 0;
+    text-align:justify;
     a.label {
         background-color: transparent !important;
         font-weight: normal;
         line-height: 1.4;
-        font-size:1em !important;
+/*        font-size:1em !important;*/
         &:hover{
             color:inherit;
             opacity: .5;
         }
+    }
+    a.types-gering{
+        font-size: 11px;
+        color:$blue;
+    }
+    a.types-mittel{
+        font-size: 13px;
+        color:$blue-middle;
+    }
+    a.types-hoch{
+        font-size: 16px;
+        color:$blue-middle-darker;
     }
 }
 /**** Bildungsticker *****/

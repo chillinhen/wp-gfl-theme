@@ -13,7 +13,7 @@
             $wp_query = new WP_Query();
             $wp_query->query('showposts=9&post_type=presse&paged=' . $paged);
             ?>
-            <?php wp_tag_cloud('smallest=11&largest=11&orderby=count&taxonomy=pressefilter&separator= | &orderby=name&format=flat&echo=true&topic_count_text_callback=default_topic_count_text'); ?>
+            <?php wp_tag_cloud('smallest=11&largest=16&orderby=count&taxonomy=pressefilter&separator= &orderby=name&format=flat&echo=true&topic_count_text_callback=default_topic_count_text'); ?>
             <div id="main-board" class="col-md-12" role="pinboard">
                 	
                 <ul id="tiles">

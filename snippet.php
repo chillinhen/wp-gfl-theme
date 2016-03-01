@@ -1,16 +1,20 @@
-
+<?php
+/*
+  Template Name: Für Förderer
+ */
+?>
 <?php get_header(); ?>
 <div id="content" class="row">
     <div class="container">
-
+        <?php get_template_part('partials/sponsoren-filter');?>
                 <?php
                 $filter = get_post_type($post_id);
                 $temp = $wp_query;
                 $wp_query = null;
                 $wp_query = new WP_Query();
-            $wp_query->query('showposts=9&post_type=foerderder&paged=' . $paged);
+            $wp_query->query('showposts=9&post_type=foerderer&paged=' . $paged);
                 ?>
-            <?php wp_tag_cloud('orderby=name&taxonomy=sponsoren-filter&separator= | &flat&echo=true&topic_count_text_callback=default_topic_count_text'); ?>
+                
             <div id="main-board" class="col-md-12" role="pinboard">
                 	
                 <ul id="tiles">

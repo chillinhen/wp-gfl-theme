@@ -1,4 +1,6 @@
 <?php
+require_once 'inc/custom-posts.php';
+
 add_action('after_setup_theme', 'wpGFL_theme_setup');
 
 function wpGFL_theme_setup() {
